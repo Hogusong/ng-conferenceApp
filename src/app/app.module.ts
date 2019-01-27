@@ -6,13 +6,16 @@ import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-bro
 import {AppComponent} from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ScheduleComponent } from './pages/schedule/schedule.component';
-import { HomeComponent } from './pages/home/home.component';
 import { TabsComponent } from './pages/tabs/tabs.component';
 import { SpeakersComponent } from './pages/speakers/speakers.component';
 import { MapComponent } from './pages/map/map.component';
 import { AboutComponent } from './pages/about/about.component';
 import { TutorialComponent } from './pages/tutorial/tutorial.component';
 import { MenuComponent } from './pages/menu/menu.component';
+import { AccountComponent } from './pages/account/account.component';
+import { LoginComponent } from './pages/login/login.component';
+import { SigninComponent } from './pages/signin/signin.component';
+import { SupportComponent } from './pages/support/support.component';
 
 @NgModule({
   imports: [
@@ -25,13 +28,16 @@ import { MenuComponent } from './pages/menu/menu.component';
   declarations: [
     AppComponent,
     ScheduleComponent,
-    HomeComponent,
     TabsComponent,
     SpeakersComponent,
     MapComponent,
     AboutComponent,
     TutorialComponent,
     MenuComponent,
+    AccountComponent,
+    LoginComponent,
+    SigninComponent,
+    SupportComponent,
   ],
   bootstrap: [AppComponent],
   providers: []
