@@ -7,11 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ScheduleComponent implements OnInit {
 
+  openDropdown = false;
+
   constructor() { }
 
   ngOnInit() { }
 
   selected(path) {
-    console.log(path);
+    this.openDropdown = !this.openDropdown;
   }
 }

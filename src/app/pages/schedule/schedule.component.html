@@ -2,8 +2,12 @@
   <div class="container-fluid bg-primary">
     <div class="row">
       <div class="col-xs-4">
-        <h4><span class="glyphicon glyphicon-menu-hamburger"
-            (click)="selected('menu bar')"></span> &nbsp;Schedule</h4>
+        <h4 class="dropdown"><span class="dropdown-toggle glyphicon glyphicon-menu-hamburger"
+            data-toggle="dropdown" (click)="selected('menu bar')"></span> &nbsp;Schedule
+          <ul class="dropdown-menu">
+            <app-menu></app-menu>
+          </ul>
+        </h4>
       </div>
       <div class="options col-xs-8 text-center">
         <p>All</p>

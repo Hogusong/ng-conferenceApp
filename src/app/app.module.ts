@@ -12,6 +12,7 @@ import { SpeakersComponent } from './pages/speakers/speakers.component';
 import { MapComponent } from './pages/map/map.component';
 import { AboutComponent } from './pages/about/about.component';
 import { TutorialComponent } from './pages/tutorial/tutorial.component';
+import { MenuComponent } from './pages/menu/menu.component';
 
 @NgModule({
   imports: [
@@ -30,6 +31,7 @@ import { TutorialComponent } from './pages/tutorial/tutorial.component';
     MapComponent,
     AboutComponent,
     TutorialComponent,
+    MenuComponent,
   ],
   bootstrap: [AppComponent],
   providers: []

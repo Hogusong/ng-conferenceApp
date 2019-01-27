@@ -1,0 +1,48 @@
+<li class="main-title">
+  <a><h3>Menu</h3></a>
+</li>
+<hr>
+
+<li class="sub-title">
+  <a><h4>Navigate</h4></a>
+</li>
+<li class="navigate" (click)="navigate('schedule')">
+  <a><span class="glyphicon glyphicon-calendar"></span>Schedule</a>
+</li>
+<li class="navigate" (click)="navigate('speakers')">
+  <a><span class="glyphicon glyphicon-user"></span>Speakers</a>
+</li>
+<li class="navigate" (click)="navigate('map')">
+  <a><span class="glyphicon glyphicon-picture"></span>Map</a>
+</li>
+<li class="navigate" (click)="navigate('about')">
+  <a><span class="glyphicon glyphicon-question-sign"></span>About</a>
+</li>
+<hr>
+
+<li class="sub-title">
+  <a><h4>Account</h4></a>
+</li>
+<li class="navigate">
+  <a *ngIf="isLoggedIn" (click)="navigate('#')"><span class="glyphicon glyphicon-user"></span>Account</a>
+  <a *ngIf="!isLoggedIn" (click)="isLoggedIn = true"><span class="glyphicon glyphicon-log-in"></span>Login</a>
+</li>
+<li class="navigate">
+  <a *ngIf="isLoggedIn" (click)="navigate('#')"><span class="glyphicon glyphicon-question-sign"></span>Support</a>
+  <a *ngIf="!isLoggedIn" [ngStyle]="{ color: gray }"><span class="glyphicon glyphicon-question-sign"></span>Support</a>
+</li>
+<li class="navigate">
+  <a *ngIf="isLoggedIn" (click)="isLoggedIn = false"><span class="glyphicon glyphicon-log-out"></span>Logout</a>
+  <a *ngIf="!isLoggedIn" (click)="isLoggedIn = true"><span class="glyphicon glyphicon-log-in"></span>Signup</a>
+</li>
+<hr>
+
+<li class="sub-title">
+  <a *ngIf="username !== 'admin'"><h4>Tutorial</h4></a>
+  <a *ngIf="username === 'admin'"><h4>Configuration</h4></a>
+</li>
+<li class="navigate" (click)="navigate('tutorial')">
+  <a *ngIf="username !== 'admin'"><span class="glyphicon glyphicon-education"></span>Show Tutorial</a>
+  <a *ngIf="username === 'admin'"><span class="glyphicon glyphicon-wrench"></span>Setup Mode</a>
+</li>
+            
