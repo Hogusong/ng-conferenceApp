@@ -1,16 +1,35 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
 
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { ScheduleComponent } from './pages/schedule/schedule.component';
+import { HomeComponent } from './pages/home/home.component';
+import { TabsComponent } from './pages/tabs/tabs.component';
+import { SpeakersComponent } from './pages/speakers/speakers.component';
+import { MapComponent } from './pages/map/map.component';
+import { AboutComponent } from './pages/about/about.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    AppRoutingModule,
+    BrowserTransferStateModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  declarations: [
+    AppComponent,
+    ScheduleComponent,
+    HomeComponent,
+    TabsComponent,
+    SpeakersComponent,
+    MapComponent,
+    AboutComponent,
+  ],
+  bootstrap: [AppComponent],
+  providers: []
 })
-export class AppModule { }
+export class AppModule {}

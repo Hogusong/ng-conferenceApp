@@ -1,0 +1,35 @@
+<nav class="navbar navbar-inverse navbar-fixed-bottom">
+  <div class="container-fluid bg-primary">
+    <div class="row" style="overflow:auto;">
+      <div class="col-xs-3 text-center">
+          <p><span class="glyphicon glyphicon-calendar" routerLink="/schedule"
+                   [ngStyle]="{ color: selected==='schedule' ? selectedColor : 'white' }"></span>
+          </p>
+          <a  [ngStyle]="{ color: selected==='schedule' ? selectedColor : 'white' }"
+              routerLink="/schedule">Schedule</a>
+      </div>
+      <div class="col-xs-3 text-center">
+          <p><span class="glyphicon glyphicon-user" routerLink="/speakers"
+                   [ngStyle]="{ color: selected==='speakers' ? selectedColor : 'white' }"></span>
+          </p>
+          <a  [ngStyle]="{ color: selected==='speakers' ? selectedColor : 'white' }"
+              routerLink="/speakers">Speakers</a>
+      </div>
+      <div class="col-xs-3 text-center">
+          <p><span class="glyphicon glyphicon-picture" routerLink="/map"
+              [ngStyle]="{ color: selected==='map' ? selectedColor : 'white' }"></span>
+          </p>
+          <a  [ngStyle]="{ color: selected==='map' ? selectedColor : 'white' }"
+              routerLink="/map">Map</a>
+        </div>
+      <div class="col-xs-3 text-center">
+          <p><span class="glyphicon glyphicon-question-sign" 
+                   [ngStyle]="{ color: selected==='about' ? selectedColor : 'white' }"
+                   routerLink="/about"></span>
+          </p>
+          <a  [ngStyle]="{ color: selected==='about' ? selectedColor : 'white' }"
+              routerLink="/about">About</a>
+      </div>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,14 @@
+/* mat-tab-gruop {
+  position: absolute;
+  height: 64px;
+  z-index: 100;
+  width: 100% !important;
+} */
+
+mat-menu-item {
+  width: 100px !important;
+}
+
+button {
+  width: 80px;
+}
