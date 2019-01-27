@@ -11,4 +11,7 @@ export class ScheduleComponent implements OnInit {
 
   ngOnInit() { }
 
+  selected(path) {
+    console.log(path);
+  }
 }
