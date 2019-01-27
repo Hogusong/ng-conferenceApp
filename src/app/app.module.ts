@@ -11,6 +11,7 @@ import { TabsComponent } from './pages/tabs/tabs.component';
 import { SpeakersComponent } from './pages/speakers/speakers.component';
 import { MapComponent } from './pages/map/map.component';
 import { AboutComponent } from './pages/about/about.component';
+import { TutorialComponent } from './pages/tutorial/tutorial.component';
 
 @NgModule({
   imports: [
@@ -28,6 +29,7 @@ import { AboutComponent } from './pages/about/about.component';
     SpeakersComponent,
     MapComponent,
     AboutComponent,
+    TutorialComponent,
   ],
   bootstrap: [AppComponent],
   providers: []
