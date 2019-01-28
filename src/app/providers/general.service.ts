@@ -30,6 +30,11 @@ export class GeneralService {
     return this.login(user);
   }
 
+  logout() {
+    localStorage.setItem('loginStatus', JSON.stringify(false));
+    localStorage.setItem('user', JSON.stringify(null));
+  }
+
   setPeriod(period: PERIOD) {
     localStorage.setItem('period', JSON.stringify(period));
   }
