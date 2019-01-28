@@ -76,3 +76,8 @@ export interface SESSION {
   tracks: string[];     //  name of track
   hide?: boolean;
 }
+
+export interface PERIOD {
+  start: string;        //  yyyy-mm-dd
+  end: string;          //  yyyy-mm-dd
+}

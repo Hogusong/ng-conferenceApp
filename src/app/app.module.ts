@@ -2,8 +2,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireStorageModule } from 'angularfire2/storage';
+import { environment } from '../environments/environment';
 
-import {AppComponent} from './app.component';
+import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ScheduleComponent } from './pages/schedule/schedule.component';
 import { TabsComponent } from './pages/tabs/tabs.component';
@@ -24,6 +28,9 @@ import { SupportComponent } from './pages/support/support.component';
     HttpClientModule,
     AppRoutingModule,
     BrowserTransferStateModule,
+    AngularFireModule.initializeApp(environment.firebase, 'conference-app'),
+    AngularFirestoreModule,
+    AngularFireStorageModule    
   ],
   declarations: [
     AppComponent,
