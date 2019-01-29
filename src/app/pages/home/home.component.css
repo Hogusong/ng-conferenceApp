@@ -1,0 +1,17 @@
+.container {
+  margin: auto;
+}
+
+.home-image {
+  margin-top: 50px;
+  height: 260px;
+}
+
+.home-title {
+  text-align: center;
+  margin-top: 36px;
+}
+
+.btn {
+  margin-top: 20px;
+}
