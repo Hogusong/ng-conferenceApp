@@ -13,7 +13,7 @@ export class ScheduleComponent implements OnInit {
 
   ngOnInit() { }
 
-  selected(path) {
+  selected() {
     this.openDropdown = !this.openDropdown;
   }
 }

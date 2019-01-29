@@ -12,18 +12,26 @@ export class GeneralService {
     localStorage.setItem('user', JSON.stringify(user));
   }
 
-  getUser(): Promise<USER> {
-    return JSON.parse(localStorage.getItem('user'))
+  getUser(): Promise<any> {
+    const promise = new Promise((res, rej) => {
+      const user = JSON.parse(localStorage.getItem('user'));
+      res(user);
+    });
+    return promise;
   }
 
-  isLoggedIn(): Promise<Boolean> {
-    return JSON.parse(localStorage.getItem('loginStatus'));
+  isLoggedIn(): Promise<any> {
+    const promise = new Promise((res, rej) => {
+      const loggedIn = JSON.parse(localStorage.getItem('loginStatus'));
+      res(loggedIn);
+    })
+    return promise;
   }
 
   login(user: USER): Promise<any> {
     localStorage.setItem('loginStatus', JSON.stringify(true));
     localStorage.setItem('user', JSON.stringify(user));
-    return JSON.parse(localStorage.getItem('loginStatus'));
+    return this.isLoggedIn();
   }
 
   signup(user: USER): Promise<any> {
@@ -40,6 +48,10 @@ export class GeneralService {
   }
 
   getPeriod(): Promise<any> {
-    return JSON.parse(localStorage.getItem('period'));
+    const promise = new Promise((res, rej) => {
+      const period = JSON.parse(localStorage.getItem('period'));
+      res(period);
+    })
+    return promise;
   }
 }

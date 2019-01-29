@@ -21,6 +21,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { SigninComponent } from './pages/signin/signin.component';
 import { SupportComponent } from './pages/support/support.component';
 import { AlertComponent } from './pages/modals/alert/alert.component';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   imports: [
@@ -47,6 +48,7 @@ import { AlertComponent } from './pages/modals/alert/alert.component';
     SigninComponent,
     SupportComponent,
     AlertComponent,
+    HomeComponent,
   ],
   bootstrap: [AppComponent],
   providers: []

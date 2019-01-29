@@ -10,8 +10,10 @@ import { AccountComponent } from './pages/account/account.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SupportComponent } from './pages/support/support.component';
 import { SigninComponent } from './pages/signin/signin.component';
+import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
+  { path: 'home', component: HomeComponent },
   { path: 'schedule', component: ScheduleComponent },
   { path: 'speakers', component: SpeakersComponent },
   { path: 'map', component: MapComponent },
@@ -21,7 +23,7 @@ const routes: Routes = [
   { path: 'support', component: SupportComponent },
   { path: 'signin', component: SigninComponent },
   { path: 'tutorial', component: TutorialComponent},
-  { path: '', redirectTo: 'tutorial', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
 
 @NgModule({
