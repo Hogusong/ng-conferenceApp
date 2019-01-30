@@ -1,3 +1,116 @@
-<p>
-  account works!
-</p>
+<div class="container-fluid bg-primary">
+  <h4 class="dropdown"><span class="dropdown-toggle glyphicon glyphicon-menu-hamburger"
+      data-toggle="dropdown" (click)="selected()"></span> &nbsp;Account
+    <ul class="dropdown-menu">
+      <app-menu></app-menu>
+    </ul>
+  </h4>
+</div>
+   
+<div class="container-fluid">
+  <div class="row text-center" *ngIf="user && !uploadImage">
+    <img *ngIf="user.avatar" [src]="user.avatar" alt="avatar">
+    <img *ngIf="!user.avatar" src="https://www.gravatar.com/avatar?d=mm&s=140" alt="avatar">
+    <h2 class="username">{{ user.username }}</h2>
+    <p>{{ user.email }}</p>
+  </div>
+</div>
+
+<div class="container btn-options" *ngIf="user">
+  <button class="btn btn-success btn-block" type="button"
+          (click)="updateUsername()" *ngIf="!hideNameBtn">
+      Change Username
+  </button>
+  <button class="btn btn-success btn-block" type="button"
+          (click)="updateEmail()" *ngIf="!hideEmailBtn">
+      Change Email
+  </button>
+  <button class="btn btn-success btn-block" type="button"
+          (click)="updatePassword()" *ngIf="!hidePasswordBtn">
+      Change Password
+  </button>
+  <button class="btn btn-success btn-block" type="button"
+          (click)="updateImage()" *ngIf="!hideImageBtn">
+      Upload User's avatar
+  </button>  
+</div>
+
+    <div class="container" [ngClass]="{ hideBtns: hideNameBtn || !showInput }">
+        
+    </div>
+
+    <div class="container" [ngClass]="{ hideBtns: hideEmailBtn || !showInput }">
+
+    </div>
+
+    <div class="container" [ngClass]="{ hideBtns: hidePasswordBtn || !showInput }">
+
+    </div>
+
+    <div class="container" [ngClass]="{ hideBtns: !showInput }">
+      <button class="btn btn-danger btn-block" type="button"
+              (click)="resetBtns(false)">
+          Go back
+      </button>  
+    </div>
+    
+<!-- 
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <form (ngSubmit)="onSubmit(LoginForm)" #LoginForm="ngForm">
+        <div id="user-data" ngModelGroup="LoginData">
+
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" 
+                    class="form-control" 
+                    name="username" ngModel
+                    placeholder=""
+                    required
+                    #username="ngModel">
+            <span class="help-block" *ngIf="username.invalid && username.touched">
+              Username is required!
+            </span>
+            <span class="help-block" *ngIf="username.touched && !foundUser()">
+              This name is not exist! Try another name.
+            </span>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password"
+                    class="form-control" 
+                    placeholder=""
+                    name="password" ngModel
+                    #password="ngModel"
+                    required>
+            <span class="help-block" *ngIf="password.invalid && password.touched">
+              Password is required!
+            </span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-4">
+            <button class="btn btn-primary" type="button" routerLink="/home">
+                Home
+            </button>
+          </div>
+          <div class="col-xs-4">
+            <button class="btn btn-primary" type="button" routerLink="/signup">
+                Signup
+            </button>
+          </div>
+          <div class="col-xs-4">
+            <button class="btn btn-primary" type="submit"
+                    [disabled]="!LoginForm.valid || !foundUser()">
+                    Submit</button>
+          </div>
+        </div>
+
+        <p class="error-msg" [hidden]="!notFound">Wrong password! Try another.</p>
+      </form>
+    </div>
+  </div>
+</div> -->

@@ -24,7 +24,7 @@
   <a><h4>Account</h4></a>
 </li>
 <li class="navigate">
-  <a *ngIf="isLoggedIn" (click)="navigate('#')"><span class="glyphicon glyphicon-user"></span>Account</a>
+  <a *ngIf="isLoggedIn" (click)="navigate('account')"><span class="glyphicon glyphicon-user"></span>Account</a>
   <a *ngIf="!isLoggedIn" routerLink="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a>
 </li>
 <li class="navigate">
