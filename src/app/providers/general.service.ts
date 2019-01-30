@@ -8,8 +8,12 @@ export class GeneralService {
 
   constructor() {}
 
-  setUser(user: USER) {
-    localStorage.setItem('user', JSON.stringify(user));
+  setUser(user: USER): Promise<any> {
+    const promise = new Promise((res, rej) => {
+      localStorage.setItem('user', JSON.stringify(user));
+      res(true)
+    });
+    return promise;
   }
 
   getUser(): Promise<any> {

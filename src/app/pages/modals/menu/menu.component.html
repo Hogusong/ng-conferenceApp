@@ -32,7 +32,7 @@
   <a *ngIf="!isLoggedIn" [ngStyle]="{ color: gray }"><span class="glyphicon glyphicon-question-sign"></span>Support</a>
 </li>
 <li class="navigate">
-  <a *ngIf="isLoggedIn" (click)="isLoggedIn = false"><span class="glyphicon glyphicon-log-out"></span>Logout</a>
+  <a *ngIf="isLoggedIn" (click)="logout()"><span class="glyphicon glyphicon-log-out"></span>Logout</a>
   <a *ngIf="!isLoggedIn" routerLink="/signup"><span class="glyphicon glyphicon-log-in"></span>Signup</a>
 </li>
 <hr>

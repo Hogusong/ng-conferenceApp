@@ -1,19 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { GeneralService } from 'src/app/providers/general.service';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.css']
 })
-export class MenuComponent implements OnInit {
+export class MenuComponent {
 
   username = 'user';
   isLoggedIn = false;
 
-  constructor(private router: Router) { }
+  constructor(private genService: GeneralService,
+              private router: Router) { }
 
-  ngOnInit() {
+  logout() {
+    this.genService.logout();
+    this.router.navigate(['home']);
   }
 
   navigate(url) {
