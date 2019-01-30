@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { GeneralService } from 'src/app/providers/general.service';
 
 @Component({
   selector: 'app-tutorial',
@@ -14,7 +15,8 @@ export class TutorialComponent implements OnInit {
 
   disableSwiping = false;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+              private genService: GeneralService) { }
 
   ngOnInit() {}
 
@@ -70,6 +72,12 @@ export class TutorialComponent implements OnInit {
   }
 
   startApp() {
-    this.router.navigate(['/schedule'])
+    this.genService.isLoggedIn().then(res => {
+      if (res) {
+        this.router.navigate(['/schedule']);
+      } else {
+        this.router.navigate(['home']);
+      }
+    })
   }
 }

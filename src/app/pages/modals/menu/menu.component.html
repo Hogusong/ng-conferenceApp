@@ -33,7 +33,7 @@
 </li>
 <li class="navigate">
   <a *ngIf="isLoggedIn" (click)="isLoggedIn = false"><span class="glyphicon glyphicon-log-out"></span>Logout</a>
-  <a *ngIf="!isLoggedIn" (click)="isLoggedIn = true"><span class="glyphicon glyphicon-log-in"></span>Signup</a>
+  <a *ngIf="!isLoggedIn" routerLink="/signup"><span class="glyphicon glyphicon-log-in"></span>Signup</a>
 </li>
 <hr>
 

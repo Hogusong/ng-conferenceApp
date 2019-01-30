@@ -9,7 +9,7 @@ import { TutorialComponent } from './pages/tutorial/tutorial.component';
 import { AccountComponent } from './pages/account/account.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SupportComponent } from './pages/support/support.component';
-import { SigninComponent } from './pages/signin/signin.component';
+import { SignupComponent } from './pages/signup/signup.component';
 import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'account', component: AccountComponent },
   { path: 'login', component: LoginComponent },
   { path: 'support', component: SupportComponent },
-  { path: 'signin', component: SigninComponent },
+  { path: 'signup', component: SignupComponent },
   { path: 'tutorial', component: TutorialComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
