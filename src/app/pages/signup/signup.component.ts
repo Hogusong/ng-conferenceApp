@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { UserService } from 'src/app/providers/user.service';
 import { USER } from 'src/app/models';
-import { flattenStyles } from '@angular/platform-browser/src/dom/dom_renderer';
 import { GeneralService } from 'src/app/providers/general.service';
 
 @Component({
@@ -96,9 +95,9 @@ export class SignupComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    this.username = this.SignupForm.value.userData.username;
-    this.email = this.SignupForm.value.userData.email;
-    this.password = this.SignupForm.value.userData.password;
+    this.username = this.SignupForm.value.userData.username.trim();
+    this.email = this.SignupForm.value.userData.email.trim();
+    this.password = this.SignupForm.value.userData.password.trim();
     const user: USER = {
       username: this.username,
       email: this.email,
