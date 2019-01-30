@@ -87,7 +87,7 @@ export class SignupComponent implements OnInit {
   }
 
   passwordsNotMatched() {
-    if (this.SignupForm.value.userData.confirmPW) {
+    if (this.SignupForm.value.userData) {
       return this.SignupForm.value.userData.password !== this.SignupForm.value.userData.confirmPW;
     }
     return false

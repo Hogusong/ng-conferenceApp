@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
   }
 
   foundUser() {
-    if (this.LoginForm.value.LoginData.username) {
+    if (this.LoginForm.value.LoginData) {
       const data = this.LoginForm.value.LoginData.username
       if (data.includes('@')) {
         return this.users.find(user => user.email.toLowerCase() === data.toLowerCase());
