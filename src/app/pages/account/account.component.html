@@ -1,3 +1,4 @@
+<!-- disable dropdown menu
 <div class="container-fluid bg-primary">
   <h4 class="dropdown"><span class="dropdown-toggle glyphicon glyphicon-menu-hamburger"
       data-toggle="dropdown" (click)="selected()"></span> &nbsp;Account
@@ -6,7 +7,11 @@
     </ul>
   </h4>
 </div>
-   
+ -->
+<div class="container-fluid bg-primary text-center">
+  <H4>Account</H4>
+</div>
+    
 <div class="container-fluid">
   <div class="row text-center" *ngIf="user && !uploadImage">
     <img *ngIf="user.avatar" [src]="user.avatar" alt="avatar">
@@ -17,19 +22,19 @@
 </div>
 
 <div class="container btn-options" *ngIf="user">
-  <button class="btn btn-success btn-block" type="button"
+  <button class="btn btn-info btn-block" type="button"
           (click)="updateUsername()" *ngIf="!hideNameBtn">
       Change Username
   </button>
-  <button class="btn btn-success btn-block" type="button"
+  <button class="btn btn-info btn-block" type="button"
           (click)="updateEmail()" *ngIf="!hideEmailBtn">
       Change Email
   </button>
-  <button class="btn btn-success btn-block" type="button"
+  <button class="btn btn-info btn-block" type="button"
           (click)="updatePassword()" *ngIf="!hidePasswordBtn">
       Change Password
   </button>
-  <button class="btn btn-success btn-block" type="button"
+  <button class="btn btn-info btn-block" type="button"
           (click)="updateImage()" *ngIf="!hideImageBtn">
       Upload User's avatar
   </button>  
@@ -52,7 +57,12 @@
   </div>
 
   <div class="input-field" [ngClass]="{ hideBtns: hidePasswordBtn || !showInput }">
-
+    <label>New Password</label>
+    <input type="password" class="form-control" [(ngModel)]="firstPass">
+    <label>Confirm Password</label>
+    <input type="password" class="form-control" [(ngModel)]="secondPass">
+    <label>Current Password</label>
+    <input type="password" class="form-control" [(ngModel)]="currPass">    
   </div>
 
   <div class="row container" [ngClass]="{ hideBtns: !showInput }">
