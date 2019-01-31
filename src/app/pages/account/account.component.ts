@@ -3,6 +3,7 @@ import { UserService } from 'src/app/providers/user.service';
 import { GeneralService } from 'src/app/providers/general.service';
 import { Router } from '@angular/router';
 import { USER } from 'src/app/models';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-account',
@@ -13,6 +14,13 @@ export class AccountComponent implements OnInit {
 
   users: USER[] = [];
   user: USER;
+  username = '';
+  email = '';
+  password = '';
+  firstPass = '';
+  secondPass = '';
+  errMessage = '';
+  avatar = '';
   uploadImage = false;
   hideNameBtn = false;
   hideEmailBtn = false;
@@ -26,6 +34,7 @@ export class AccountComponent implements OnInit {
 
   ngOnInit() {
     this.genService.getUser().then(res => {
+      this.avatar = res.avatar;
       this.userService.getUserById(res.id).then(res => this.user = res);
     });
     this.userService.getUsers().subscribe(res => this.users = res);
@@ -57,5 +66,49 @@ export class AccountComponent implements OnInit {
     this.hidePasswordBtn = value;
     this.hideImageBtn = value;
     this.showInput = value;
+    this.errMessage = ''
+  }
+
+  onSubmit() {
+    if (!this.hideNameBtn) { this.processUsername() }
+    if (!this.hideEmailBtn) { this.processEmail() }
+    if (!this.hidePasswordBtn) { this.processPassword() }
+    if (!this.hideImageBtn) { this.processImage() }
+  }
+
+  processUsername() {
+    this.username = this.username.trim();
+    if (this.username.length < 3) {
+      this.errMessage = 'More than 2 letters are requuired.'
+    } else {
+      const idx = this.users.findIndex(user => user.username.toLowerCase() === this.username.toLowerCase());
+      if (idx > -1) {
+        this.errMessage = 'This name is used already.'
+      } else {
+        this.user.username = this.username;
+        this.updateUser(this.user);
+      }
+    }
+  }
+
+  processEmail() {
+
+  }
+
+  processPassword() {
+
+  }
+
+  processImage() {
+
+  }
+
+  updateUser(user: USER) {
+    user.avatar = this.avatar;
+    this.genService.setUser(user).then(res => {
+      this.userService.updateUser(user);
+      this.userService.getUserById(user.id).then(res => this.user = res);
+    });
+    this.resetBtns(false);
   }
 }

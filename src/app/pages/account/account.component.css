@@ -4,13 +4,15 @@ img {
   margin-top: 40px;
 }
 
-/* .username {
-  margin-bottom: 20px;
-} */
-
 p {
   margin-top: -10px;
   color: blue
+}
+
+.input-form {
+  margin: 15px 30px 15px 30px;
+  border: 1px solid black;
+  /* background-color: antiquewhite; */
 }
 
 .btn-block {
@@ -21,6 +23,16 @@ p {
   width: 80%;
 }
 
+.input-field {
+  margin: auto;
+  margin-top: 10px;
+  width: 90%;
+}
+
 .hideBtns {
   display: None;
+}
+
+.help-block {
+  color: red;
 }
