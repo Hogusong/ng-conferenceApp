@@ -58,4 +58,21 @@ export class GeneralService {
     })
     return promise;
   }
+
+  isValidEmail(data) {
+    if (data) {
+      if (!data.includes('@')) { return false;  } 
+      if (!data.includes('.')) { return false;  } 
+
+      const indexAt = data.indexOf('@');
+      if (data.indexOf('@', indexAt+1) > -1) { return false;  }
+
+      let count = 0;
+      for (let i=indexAt; i < data.length ; i++) {
+        if (data[i] === '.' && i > indexAt) { count ++ }
+      };
+      return count === 1;
+    }
+    return true;
+  }
 }

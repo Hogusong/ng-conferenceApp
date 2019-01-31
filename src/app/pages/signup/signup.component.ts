@@ -62,21 +62,8 @@ export class SignupComponent implements OnInit {
     return false;
   }
 
-  notValidEmail(data) {
-    if (data) {
-      if (!data.includes('@')) { return true;  } 
-      if (!data.includes('.')) { return true;  } 
-
-      const indexAt = data.indexOf('@');
-      if (data.indexOf('@', indexAt+1) > -1) { return true;  }
-
-      let count = 0;
-      for (let i=indexAt; i < data.length ; i++) {
-        if (data[i] === '.' && i > indexAt) { count ++ }
-      };
-      return count > 1
-    }
-    return false;
+  isValidEmail(data) {
+    return this.genService.isValidEmail(data);
   }
 
   notEnoughLength(data) {

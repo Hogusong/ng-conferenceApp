@@ -83,16 +83,30 @@ export class AccountComponent implements OnInit {
     } else {
       const idx = this.users.findIndex(user => user.username.toLowerCase() === this.username.toLowerCase());
       if (idx > -1) {
-        this.errMessage = 'This name is used already.'
+        this.errMessage = 'This name was used already.'
       } else {
         this.user.username = this.username;
         this.updateUser(this.user);
       }
     }
+    this.clearErrMessage();
   }
 
   processEmail() {
-
+    console.log('process Email.')
+    this.email = this.email.trim();
+    if (!this.genService.isValidEmail(this.email)) {
+      this.errMessage = "This email is not valid.";
+    } else {
+      const idx = this.users.findIndex(user => user.email.toLowerCase() === this.email.toLowerCase());
+      if (idx > -1) {
+        this.errMessage = 'This email was used already.'
+      } else {
+        this.user.email = this.email;
+        this.updateUser(this.user);
+      }
+    }
+    this.clearErrMessage();
   }
 
   processPassword() {
@@ -101,6 +115,10 @@ export class AccountComponent implements OnInit {
 
   processImage() {
 
+  }
+
+  clearErrMessage() {
+    setTimeout(() => { this.errMessage = '' }, 3000);
   }
 
   updateUser(user: USER) {

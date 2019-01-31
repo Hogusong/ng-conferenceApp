@@ -40,7 +40,7 @@
                     required >
             <span class="help-block"
                   *ngIf="userEmail.touched && 
-                        (userEmail.invalid || userEmail.errors?.pattern || notValidEmail(userEmail.viewModel))">
+                        (userEmail.invalid || userEmail.errors?.pattern || !isValidEmail(userEmail.viewModel))">
               Valid email is required!
             </span>
             <span class="help-block" *ngIf="userEmail.touched && isThisUsed(userEmail.viewModel)">

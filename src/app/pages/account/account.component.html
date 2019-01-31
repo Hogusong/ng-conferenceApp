@@ -41,36 +41,34 @@
 </div>
 
 <div class="container input-form" *ngIf="showInput">
-    <div class="input-field" [ngClass]="{ hideBtns: hideNameBtn || !showInput }">
-      <label for="username">Username</label>
-      <input type="text" 
-              class="form-control" 
-              [(ngModel)]="username">
-      <span class="help-block" *ngIf="errMessage">
-        {{ errMessage }}
-      </span>
-          
+  <div class="input-field" [ngClass]="{ hideBtns: hideNameBtn || !showInput }">
+    <label for="username">Username</label>
+    <input type="text" class="form-control" [(ngModel)]="username">
+  </div>
+
+  <div class="input-field" [ngClass]="{ hideBtns: hideEmailBtn || !showInput }">
+    <label for="email">Email</label>
+    <input type="email" class="form-control" [(ngModel)]="email">
+  </div>
+
+  <div class="input-field" [ngClass]="{ hideBtns: hidePasswordBtn || !showInput }">
+
+  </div>
+
+  <div class="row container" [ngClass]="{ hideBtns: !showInput }">
+    <div class="col-xs-6">
+      <button class="btn btn-default btn-block" type="button" (click)="resetBtns(false)">
+          Cancel
+      </button>
     </div>
-
-    <div class="container" [ngClass]="{ hideBtns: hideEmailBtn || !showInput }">
-
+    <div class="col-xs-6">
+      <button class="btn btn-default btn-block" type="button" (click)="onSubmit()">
+          Submit
+      </button>
     </div>
+  </div>  
+</div>
 
-    <div class="container" [ngClass]="{ hideBtns: hidePasswordBtn || !showInput }">
-
-    </div>
-
-    <div class="row container" [ngClass]="{ hideBtns: !showInput }">
-      <div class="col-xs-6">
-        <button class="btn btn-default btn-block" type="button" (click)="resetBtns(false)">
-            Cancel
-        </button>
-      </div>
-      <div class="col-xs-6">
-        <button class="btn btn-default btn-block" type="button" (click)="onSubmit()">
-            Submit
-        </button>
-      </div>
-    </div>
-    
+<div class="container message">
+  <span *ngIf="errMessage">{{ errMessage }}</span>
 </div>
