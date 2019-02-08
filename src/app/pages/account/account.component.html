@@ -35,7 +35,7 @@
       Change Password
   </button>
   <button class="btn btn-info btn-block" type="button"
-          (click)="updateImage()" *ngIf="!hideImageBtn">
+          (click)="updateAvatar()" *ngIf="!hideImageBtn">
       Upload User's avatar
   </button>  
   <button class="btn btn-danger btn-block" type="button"
@@ -45,7 +45,7 @@
 
 </div>
 
-<div class="container input-form" *ngIf="showInput">
+<div class="container input-form" *ngIf="showInput && !uploadImage">
   <div class="input-field" [ngClass]="{ hideBtns: hideNameBtn || !showInput }">
     <label for="username">Username</label>
     <input type="text" class="form-control" [(ngModel)]="username">
@@ -78,6 +78,12 @@
     </div>
   </div>  
 </div>
+
+<upload-image *ngIf="user && uploadImage"
+    [name]="user.username"
+    (updateImage)="updatePicture($event)"
+    (exit)="onExit()">
+</upload-image>
 
 <div class="container message">
   <span *ngIf="errMessage">{{ errMessage }}</span>

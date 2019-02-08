@@ -66,6 +66,26 @@
   <p>Schedule List glyphicon glyphicon-filter</p>
   <p>Schedule List glyphicon glyphicon-filter</p>
   <p>Schedule List glyphicon glyphicon-filter</p>
+
+  <div class="container-1">
+    <div class="fabs-1" *ngIf="activeFabs1">
+      <button (click)="getNewPeriod()">New</button>
+      <p>{{ dateFrom }}</p>
+      <p>{{ dateTo }}</p>
+    </div>
+    <a class="btn button-0 bg-primary" *ngIf="!activeFabs1" (click)="activeFabs1=true">Period</a>
+    <a class="btn button-0 bg-primary" *ngIf="activeFabs1" (click)="activeFabs1=false">X</a>
+  </div>
+
+  <div class="container-2"  > 
+    <div class="fabs-2" *ngIf="activeFabs2">
+      <a href="#" class="btn button-1"><i class="fab fa-google-plus-g"></i></a>
+      <a href="#" class="btn button-2"><i class="fab fa-twitter"></i></a>
+      <a href="#" class="btn button-3"><i class="fab fa-facebook-f"></i></a>
+    </div>
+    <a class="btn button-0 bg-primary" (click)="activeFabs2=!activeFabs2"><i class="fas fa-share-alt"></i></a>
+  </div>  
+
 </div>
 
 <app-tabs [selected]="'schedule'"></app-tabs>

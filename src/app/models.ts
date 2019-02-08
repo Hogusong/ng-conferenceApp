@@ -78,6 +78,6 @@ export interface SESSION {
 }
 
 export interface PERIOD {
-  start: string;        //  yyyy-mm-dd
-  end: string;          //  yyyy-mm-dd
+  dateFrom: string;        //  yyyy-mm-dd
+  dateTo: string;          //  yyyy-mm-dd
 }

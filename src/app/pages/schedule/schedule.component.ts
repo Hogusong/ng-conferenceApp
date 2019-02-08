@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class ScheduleComponent implements OnInit {
 
   openDropdown = false;
+  activeFabs1 = false;
+  activeFabs2 = false;
 
   constructor() { }
 
@@ -15,5 +17,9 @@ export class ScheduleComponent implements OnInit {
 
   selected() {
     this.openDropdown = !this.openDropdown;
+  }
+
+  getNewPeriod() {
+
   }
 }

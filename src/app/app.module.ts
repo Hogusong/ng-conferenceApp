@@ -22,6 +22,9 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { SupportComponent } from './pages/support/support.component';
 import { AlertComponent } from './pages/modals/alert/alert.component';
 import { HomeComponent } from './pages/home/home.component';
+import { FileSizePipe } from './pipe/file-size.pipe';
+import { DropZoneDirective } from './directive/drop-zone.directive';
+import { UploadImageComponent } from './pages/upload-image/upload-image.component';
 
 @NgModule({
   imports: [
@@ -33,7 +36,7 @@ import { HomeComponent } from './pages/home/home.component';
     BrowserTransferStateModule,
     AngularFireModule.initializeApp(environment.firebase, 'conference-app'),
     AngularFirestoreModule,
-    AngularFireStorageModule    
+    AngularFireStorageModule,
   ],
   declarations: [
     AppComponent,
@@ -50,6 +53,9 @@ import { HomeComponent } from './pages/home/home.component';
     SupportComponent,
     AlertComponent,
     HomeComponent,
+    FileSizePipe,
+    DropZoneDirective,
+    UploadImageComponent
   ],
   bootstrap: [AppComponent],
   providers: []

@@ -19,7 +19,7 @@ export class AccountComponent implements OnInit {
   firstPass = '';
   secondPass = '';
   errMessage = '';
-  avatar = '';
+
   uploadImage = false;
   hideNameBtn = false;
   hideEmailBtn = false;
@@ -33,7 +33,6 @@ export class AccountComponent implements OnInit {
 
   ngOnInit() {
     this.genService.getUser().then(res => {
-      this.avatar = res.avatar;
       this.userService.getUserById(res.id).then(res => {
         this.user = res;
       });
@@ -56,9 +55,10 @@ export class AccountComponent implements OnInit {
     this.hidePasswordBtn = false
   }
 
-  updateImage() {
+  updateAvatar() {
     this.resetBtns(true);
-    this.hideImageBtn = false
+    this.hideImageBtn = false;
+    this.uploadImage = true;
   }
 
   resetBtns(value: boolean) {
@@ -70,11 +70,15 @@ export class AccountComponent implements OnInit {
     this.errMessage = ''
   }
 
+  onExit() {
+    this.resetBtns(false);
+    this.uploadImage = false;
+  }
+
   onSubmit() {
     if (!this.hideNameBtn) { this.processUsername() }
     else if (!this.hideEmailBtn) { this.processEmail() }
     else if (!this.hidePasswordBtn) { this.processPassword() }
-    else if (!this.hideImageBtn) { this.processImage() }
   }
 
   processUsername() {
@@ -126,16 +130,30 @@ export class AccountComponent implements OnInit {
     if (this.errMessage) { setTimeout(() => { this.errMessage = '' }, 3000); }
   }
 
-  processImage() {
-
-  }
-
   updateUser(user: USER) {
-    user.avatar = this.avatar;
+    const target = this.users.find(u => u.id === user.id);
+    if (target) { user.avatar = target.avatar; }
+    this.userService.updateUser(user);
     this.genService.setUser(user).then(res => {
-      this.userService.updateUser(user);
       this.userService.getUserById(user.id).then(res => this.user = res);
     });
     this.resetBtns(false);
+  }
+
+  updatePicture(path: string) {
+    const oldUrl = this.user.avatar;
+    const id = this.user.id;
+
+    this.resetBtns(false);
+    this.uploadImage = false;
+
+    this.user.avatar = path;
+    this.genService.setUser(this.user).then(() => {
+      this.userService.updateUser(this.user);
+    });
+
+    // this.user = null;
+    this.userService.getUserById(id).then(data => { this.user = data; });
+    this.userService.deleteUrl(oldUrl);
   }
 }

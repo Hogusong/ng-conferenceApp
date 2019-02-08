@@ -36,3 +36,79 @@
 #body {
   margin-top: 70px;
 }
+
+/* Floating Action Buttons */
+.container-1 {
+  position: fixed;
+  margin: 1em;
+  bottom: 55px;
+  left: 0;
+}
+
+.container-1 a {
+  float: left;
+  font-size: 14px;
+  padding: 15px 0px 0 0;
+  color: white
+}
+
+.fabs-1 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.fabs-1 p, .fabs-1 button {
+  background: rgb(93, 201, 243);
+  color: white;
+  padding: 5px 10px;
+  margin: 8px 0 0 0;
+  font-weight: 400;
+  border-radius: 5px;
+  outline: none;
+}
+
+.container-2 {
+  position: fixed;
+  margin: 1em;
+  bottom: 55px;
+  right: 0;
+}
+
+.fabs-2 {
+  margin-bottom: 10px;
+}
+
+.btn {
+  border-radius: 50%;
+  display: block;
+  width: 56px;
+  height: 56px;
+  margin: 10px auto 0;
+  outline: none;
+  position: relative;
+  background-size: contain;
+  font-size: 20px;
+}
+
+.fabs-2 .btn {
+  width: 40px;
+  height: 40px;
+  margin: 20px auto 0;
+  background: rgb(93, 201, 243);
+  margin: 15px auto 0;
+}
+
+.fabs-2 i {
+  color: white;
+}
+
+.button-0 {
+  background-size: contain;
+  margin: auto;
+}
+
+.button-0 i {
+  font-size: 25px;
+  margin-top: 8px;
+  color: white
+}
