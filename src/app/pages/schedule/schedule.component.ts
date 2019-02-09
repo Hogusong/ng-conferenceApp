@@ -160,10 +160,6 @@ export class ScheduleComponent implements OnInit {
     console.log('Choose a track to show schedule');
   }
 
-  selected() {
-    this.openDropdown = !this.openDropdown;
-  }
-
   getNewPeriod(period) {
     this.activeFabs1 = false;
     this.genService.setPeriod(period);
