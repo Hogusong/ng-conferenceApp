@@ -1,12 +1,35 @@
 import { Injectable } from '@angular/core';
-import { USER, PERIOD } from '../models';
+import { AngularFirestoreCollection,
+  AngularFirestoreDocument,
+  AngularFirestore }   from 'angularfire2/firestore';
+
+import { USER, PERIOD, PARTOFDAY } from '../models';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GeneralService {
 
-  constructor() {}
+  partsOfDayCollection: AngularFirestoreCollection<PARTOFDAY>;
+  partOfDayDoc: AngularFirestoreDocument<PARTOFDAY>;
+
+  constructor(private db: AngularFirestore) {
+    this.partsOfDayCollection = this.db.collection(
+      'partOfDay', ref => ref.orderBy('indexKey', 'asc'));
+  }
+
+  getPartsOfDay(): Observable<PARTOFDAY[]> {
+    return this.partsOfDayCollection.snapshotChanges()
+      .pipe(map(response => {
+        return response.map(action => {
+          const data = action.payload.doc.data() as PARTOFDAY;
+          data.id = action.payload.doc.id;
+          return data;
+        });
+      }));
+  }
 
   setUser(user: USER): Promise<any> {
     const promise = new Promise((res, rej) => {

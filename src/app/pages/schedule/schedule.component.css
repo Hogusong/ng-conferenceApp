@@ -1,6 +1,9 @@
+/* Navigartin bar */
 .navbar {
   background-color: white;
   border: none;
+  border-bottom: 1px solid lightgray;
+  box-shadow: 2px 3px 0px 0px rgba(114, 114, 116, 0.2);
 }
 
 .dropdown-menu {
@@ -17,6 +20,7 @@
   float: right;
 }
 
+/* Search bar */
 .search span {
   font-size: 16px;
 }
@@ -33,8 +37,38 @@
   margin: 3px 0 3px 0;
 }
 
+.search input {
+  box-shadow: 3px 3px 0px 0px rgba(114, 114, 116, 0.2);
+  margin-bottom: 3px;
+}
+
+/* body of schedule */
 #body {
-  margin-top: 70px;
+  margin: 90px 0 0 0;
+}
+
+#body ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.group-header {
+  margin-top: 5px;
+  padding: 0;
+  padding-bottom: 5px;
+  border-bottom: 1px solid lightgray;
+  color: rgb(87, 199, 243);
+}
+
+.item-group {
+  border-bottom: 1px solid lightgray;
+  margin-top: 5px;
+  padding-left: 10px;
+}
+
+.item-group p {
+  margin: 0 0 5px 0;
 }
 
 /* Floating Action Buttons */
@@ -88,6 +122,7 @@
   position: relative;
   background-size: contain;
   font-size: 20px;
+  /* box-shadow: 2px 2px 0px 0px rgba(114, 114, 116, 0.2); */
 }
 
 .fabs-2 .btn {
