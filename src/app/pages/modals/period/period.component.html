@@ -1,0 +1,45 @@
+<div class="modal">
+  <div class="modal-content">
+    <h3 class="header">Set New Period</h3>
+    <form (ngSubmit)="onSubmit(PeriodForm)" #PeriodForm="ngForm">
+      <div id="period-data" class="row" ngModelGroup="PeriodData">
+        <div class="form-group col-xs-6">
+          <label for="from">Date from</label>
+          <input type="date"
+                  class="from-control"
+                  name="from" ngModel
+                  required
+                  #from="ngModel">
+        </div>
+
+        <div class="form-group col-xs-6">
+          <label for="to">Date to</label>
+          <input type="date"
+                  class="from-control"
+                  name="to" ngModel
+                  required
+                  #to="ngModel">
+        </div>
+
+        <span class="help-block" *ngIf="from.invalid && from.touched">
+          'Date From' is required!
+        </span>
+
+        <span class="help-block" *ngIf="to.invalid && to.touched">
+          'Date To' is required!
+        </span>
+        <span class="help-block" *ngIf="to.touched && !isValidDate()">
+          Date 'to' can not be earlier than 'from'.
+        </span>
+
+      </div>
+
+      <div class="buttons">
+        <button class="btn btn-primary" type="button"
+                (click)="onExit()">Cancel</button>
+        <button class="btn btn-primary" type="submit"
+                [disabled]="!PeriodForm.valid || !isValidDate()">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>

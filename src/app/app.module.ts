@@ -25,6 +25,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { FileSizePipe } from './pipe/file-size.pipe';
 import { DropZoneDirective } from './directive/drop-zone.directive';
 import { UploadImageComponent } from './pages/upload-image/upload-image.component';
+import { PeriodComponent } from './pages/modals/period/period.component';
 
 @NgModule({
   imports: [
@@ -55,7 +56,8 @@ import { UploadImageComponent } from './pages/upload-image/upload-image.componen
     HomeComponent,
     FileSizePipe,
     DropZoneDirective,
-    UploadImageComponent
+    UploadImageComponent,
+    PeriodComponent
   ],
   bootstrap: [AppComponent],
   providers: []
