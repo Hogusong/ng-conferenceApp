@@ -111,8 +111,6 @@ export class ScheduleComponent implements OnInit {
         });
       });
     });
-
-    console.log('Schedule updated', this.schedule);
   }
 
   getFilterOption() {
@@ -140,6 +138,26 @@ export class ScheduleComponent implements OnInit {
         group.count = count
       });
     });
+  }
+
+  processByOption(option) {
+    this.segment = option;
+    if (this.segment === 'one') {
+      this.chooseTrack();
+    } else if (this.segment === 'all') {
+      this.excludeTracks = [];
+      this.upDateFilter();
+    } else if (this.segment = 'favorites') {
+      this.upDateFilter();
+    }
+  }
+
+  resetFilter() {
+    console.log('reset filter');
+  }
+
+  chooseTrack() {
+    console.log('Choose a track to show schedule');
   }
 
   selected() {

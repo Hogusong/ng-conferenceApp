@@ -10,19 +10,38 @@
   width: 200px;
 }
 
-.options {
-  display: grid;
-  grid-template-columns: 1fr 1fr 2fr 1fr;
-  margin-top: 10px;
+h4 {
+  color: orange;
 }
 
-.options span {
-  float: right;
+h4 span {
+  color: white;
+}
+
+.options {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr 2fr;
+  margin-top: 10px;
+  padding: 0;
+  list-style: none;
+}
+
+.option {
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-size: 14px;
+}
+
+.option:hover {
+  color: yellowgreen;
 }
 
 /* Search bar */
 .search span {
   font-size: 16px;
+  padding: 0;
+  margin: 0;
 }
 
 #search {

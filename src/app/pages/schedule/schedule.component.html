@@ -9,12 +9,12 @@
           </ul>
         </h4>
       </div>
-      <div class="options col-xs-8 text-center">
-        <p>All</p>
-        <p>Track</p>
-        <p>Favorites</p>
-        <p>Filter<span class="glyphicon glyphicon-filter"></span></p>
-      </div>
+      <ul class="options col-xs-8 text-center">
+        <li><a class="option" (click)="processByOption('all')">A l l</a></li>
+        <li><a class="option" (click)="processByOption('one')">Track</a></li>
+        <li><a class="option" (click)="processByOption('favorites')">Favorites</a></li>
+        <li (click)="resetFilter()">Filter<span class="glyphicon glyphicon-filter"></span></li>
+      </ul>
     </div>
   </div>
 
