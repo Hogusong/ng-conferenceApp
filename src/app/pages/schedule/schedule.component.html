@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<nav class="navbar navbar-inverse navbar-fixed-top" [hidden]="!openScheduleList">
   <div class="container-fluid bg-primary">
     <div class="row">
       <div class="col-xs-4">
@@ -18,7 +18,7 @@
     </div>
   </div>
 
-  <div class="row search">
+  <div class="row search" [hidden]="!openScheduleList">
     <div class="col-xs-1">
       <span class="glyphicon glyphicon-search" id="search"></span>
     </div>
@@ -35,7 +35,8 @@
   </div>
 </nav>
 
-<div class="container-fluid" id="body" [hidden]="schedule.length === 0">
+<div class="container-fluid" id="body"
+      [hidden]="schedule.length === 0 || !openScheduleList">
   <ul *ngFor="let daily of schedule">
     <ul *ngFor="let group of daily.groups" [hidden]="group.count === 0">
       <div class="group-header">
@@ -53,24 +54,26 @@
   </ul>
 </div>
 
-<div class="container-1">
-  <div class="fabs-1" *ngIf="activeFabs1">
-    <button (click)="openPeriod=true">New</button>
-    <p>{{ dateFrom }}</p>
-    <p>{{ dateTo }}</p>
+<div class="fab-group" [hidden]="!openScheduleList">
+  <div class="container-1">
+    <div class="fabs-1" *ngIf="activeFabs1">
+      <button (click)="openPeriod=true">New</button>
+      <p>{{ dateFrom }}</p>
+      <p>{{ dateTo }}</p>
+    </div>
+    <a class="btn button-0 bg-primary" *ngIf="!activeFabs1" (click)="activeFabs1=true">Period</a>
+    <a class="btn button-0 bg-primary" *ngIf="activeFabs1" (click)="activeFabs1=false">X</a>
   </div>
-  <a class="btn button-0 bg-primary" *ngIf="!activeFabs1" (click)="activeFabs1=true">Period</a>
-  <a class="btn button-0 bg-primary" *ngIf="activeFabs1" (click)="activeFabs1=false">X</a>
-</div>
 
-<div class="container-2"  > 
-  <div class="fabs-2" *ngIf="activeFabs2">
-    <a href="#" class="btn button-1"><i class="fab fa-google-plus-g"></i></a>
-    <a href="#" class="btn button-2"><i class="fab fa-twitter"></i></a>
-    <a href="#" class="btn button-3"><i class="fab fa-facebook-f"></i></a>
-  </div>
-  <a class="btn button-0 bg-primary" (click)="activeFabs2=!activeFabs2"><i class="fas fa-share-alt"></i></a>
-</div>  
+  <div class="container-2"  > 
+    <div class="fabs-2" *ngIf="activeFabs2">
+      <a href="#" class="btn button-1"><i class="fab fa-google-plus-g"></i></a>
+      <a href="#" class="btn button-2"><i class="fab fa-twitter"></i></a>
+      <a href="#" class="btn button-3"><i class="fab fa-facebook-f"></i></a>
+    </div>
+    <a class="btn button-0 bg-primary" (click)="activeFabs2=!activeFabs2"><i class="fas fa-share-alt"></i></a>
+  </div>  
+</div>
 
 <app-period *ngIf="openPeriod"
             (submitPeriod)="getNewPeriod($event)"
@@ -78,5 +81,8 @@
             [dateFrom]="dateFrom"
             [dateTo]="dateTo"></app-period>
 
-<app-tabs [selected]="'schedule'"></app-tabs>
+<app-select-track *ngIf="openSelectTrack"
+            (submitTrack)="getOneTrack($event)"
+            (exitSelectTrack)="closeSelectTrack()"></app-select-track>
 
+<app-tabs [selected]="'schedule'"></app-tabs>

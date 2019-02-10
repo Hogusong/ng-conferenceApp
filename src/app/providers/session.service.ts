@@ -47,8 +47,9 @@ export class SessionService {
     // if any of the sessions tracks are not in the
     // exclude tracks then this session passes the track test
     let matchesTracks = false;
-    session.tracks.forEach((trackName: string) => {
-      if (options.excludeTracks.indexOf(trackName) === -1) {
+    session.tracks.forEach((trackName) => {
+      const index = options.excludeTracks.indexOf(trackName);
+      if ( index === -1) {
         matchesTracks = true;
       }
     });

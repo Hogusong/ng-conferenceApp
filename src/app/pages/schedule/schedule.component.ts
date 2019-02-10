@@ -11,7 +11,8 @@ import { SessionService } from 'src/app/providers/session.service';
 })
 export class ScheduleComponent implements OnInit {
 
-  openDropdown = false;
+  openScheduleList = true;
+  openSelectTrack = false;
   activeFabs1 = false;
   activeFabs2 = false;
   openPeriod = false;
@@ -143,8 +144,9 @@ export class ScheduleComponent implements OnInit {
   processByOption(option) {
     this.segment = option;
     if (this.segment === 'one') {
-      this.chooseTrack();
-    } else if (this.segment === 'all') {
+      this.openScheduleList = false;
+      this.openSelectTrack = true;
+      } else if (this.segment === 'all') {
       this.excludeTracks = [];
       this.upDateFilter();
     } else if (this.segment = 'favorites') {
@@ -156,8 +158,16 @@ export class ScheduleComponent implements OnInit {
     console.log('reset filter');
   }
 
-  chooseTrack() {
-    console.log('Choose a track to show schedule');
+  getOneTrack(data) {
+    this.excludeTracks = data;
+    this.segment = 'user';
+    this.upDateFilter();
+    this.closeSelectTrack();
+  }
+
+  closeSelectTrack() {
+    this.openScheduleList = true;
+    this.openSelectTrack = false;
   }
 
   getNewPeriod(period) {
