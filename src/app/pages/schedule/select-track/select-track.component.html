@@ -2,7 +2,7 @@
   <h4>Select One Track</h4>
   <button (click)="onExit()">Cancel</button>
 </div>
-<div class="container-fluid">
+<div class="container-fluid body">
   <p>TRACKS</p>
   <ul *ngFor="let track of tracks">
     <li (click)="selectTrack(track.name)">{{ track.name }}</li>

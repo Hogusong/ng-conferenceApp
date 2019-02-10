@@ -8,6 +8,10 @@ button {
   margin-top: 10px;
 }
 
+.body {
+  padding-bottom: 80px;
+}
+
 p {
   margin-top: 20px;
   margin-bottom: 10px;
@@ -16,7 +20,6 @@ p {
 
 ul {
   list-style: none;
-  padding-bottom: 80px;
 }
 
 li {
