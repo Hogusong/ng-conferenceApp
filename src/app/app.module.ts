@@ -27,6 +27,7 @@ import { DropZoneDirective } from './directive/drop-zone.directive';
 import { UploadImageComponent } from './pages/upload-image/upload-image.component';
 import { PeriodComponent } from './pages/modals/period/period.component';
 import { SelectTrackComponent } from './pages/schedule/select-track/select-track.component';
+import { ResetFilterComponent } from './pages/schedule/reset-filter/reset-filter.component';
 
 @NgModule({
   imports: [
@@ -59,7 +60,8 @@ import { SelectTrackComponent } from './pages/schedule/select-track/select-track
     DropZoneDirective,
     UploadImageComponent,
     PeriodComponent,
-    SelectTrackComponent
+    SelectTrackComponent,
+    ResetFilterComponent
   ],
   bootstrap: [AppComponent],
   providers: []

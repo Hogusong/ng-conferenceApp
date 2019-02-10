@@ -13,7 +13,7 @@
         <li><a class="option" (click)="processByOption('all')">A l l</a></li>
         <li><a class="option" (click)="processByOption('one')">Track</a></li>
         <li><a class="option" (click)="processByOption('favorites')">Favorites</a></li>
-        <li (click)="resetFilter()">Filter<span class="glyphicon glyphicon-filter"></span></li>
+        <li (click)="processByOption('filter')">Filter<span class="glyphicon glyphicon-filter"></span></li>
       </ul>
     </div>
   </div>
@@ -84,5 +84,9 @@
 <app-select-track *ngIf="openSelectTrack"
             (submitTrack)="getOneTrack($event)"
             (exitSelectTrack)="closeSelectTrack()"></app-select-track>
+
+<app-reset-filter *ngIf="openResetFilter"
+            (submitResetFilter)="resetFilter($event)"
+            (exitResetFilter)="closeResetFilter()"></app-reset-filter>
 
 <app-tabs [selected]="'schedule'"></app-tabs>

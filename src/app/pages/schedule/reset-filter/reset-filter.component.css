@@ -1,0 +1,71 @@
+.title {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr;
+  width: 100%;
+  padding: 0;
+  padding-bottom: 1px;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+h4 {
+  margin-left: 20px;
+  padding: 0;
+}
+
+button {
+  text-align: right;
+}
+
+.btn-submit {
+  margin-right: 15px;
+}
+
+button:hover {
+  color: greenyellow;
+}
+
+.body {
+  padding: 60px 20px;
+}
+
+.tracks {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.tracks p {
+  float: left;
+  padding-left: 10px;
+}
+
+.tracks button {
+  float: right;
+  color: red;
+}
+
+.track-list {
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  display: inline-block;
+  padding-right: 10px;
+  margin: 0;
+  width: 100%;
+  border-bottom: 1px solid lightgray;
+}
+
+li p {
+  float: left;
+}
+
+li input {
+  float: right;
+}

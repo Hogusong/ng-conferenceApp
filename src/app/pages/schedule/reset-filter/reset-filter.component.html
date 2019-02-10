@@ -1,0 +1,22 @@
+<div class="title bg-primary">
+  <h4>Filter Session</h4>
+  <button class="btn-cancel" (click)="onExit()">Cancel</button>
+  <button class="btn-submit" (click)="onSubmit()">Submit</button>
+</div>
+
+<div class="container-fluid body">
+  <div class="tracks">
+    <p>TRACKS</p>
+    <button class="checkAll" (click)="onAction(true)">Check All</button>
+    <button (click)="onAction(false)">Clear All</button>
+  </div>
+  <div class="track-list">
+    <ul *ngFor="let track of trackFilter; let i = index">
+      <li>
+        <p>{{ track.name }}</p>
+        <input type="checkbox" id="myCheck"
+              (click)="onClick(i)" [checked]="track.isChecked">
+      </li>
+    </ul>
+  </div>
+</div>

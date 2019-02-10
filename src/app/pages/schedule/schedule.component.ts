@@ -13,6 +13,7 @@ export class ScheduleComponent implements OnInit {
 
   openScheduleList = true;
   openSelectTrack = false;
+  openResetFilter = false;
   activeFabs1 = false;
   activeFabs2 = false;
   openPeriod = false;
@@ -146,16 +147,26 @@ export class ScheduleComponent implements OnInit {
     if (this.segment === 'one') {
       this.openScheduleList = false;
       this.openSelectTrack = true;
-      } else if (this.segment === 'all') {
+    } else if (this.segment === 'all') {
       this.excludeTracks = [];
       this.upDateFilter();
-    } else if (this.segment = 'favorites') {
+    } else if (this.segment === 'favorites') {
       this.upDateFilter();
+    } else if (this.segment === 'filter') {
+      this.openScheduleList = false;
+      this.openResetFilter = true;
     }
   }
 
-  resetFilter() {
-    console.log('reset filter');
+  resetFilter(data) {
+    this.excludeTracks = data;
+    this.upDateFilter();
+    this.closeResetFilter();
+  }
+
+  closeResetFilter() {
+    this.openScheduleList = true;
+    this.openResetFilter = false;
   }
 
   getOneTrack(data) {
