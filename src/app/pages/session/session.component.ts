@@ -18,6 +18,7 @@ export class SessionComponent implements OnInit {
   user: USER;
   speakers: SPEAKER[];
   navbar: any;
+  favorites: { id: string, name: string }[]; 
 
   constructor(private sessionService: SessionService,
               private userService: UserService,
@@ -42,8 +43,25 @@ export class SessionComponent implements OnInit {
   }
 
   isFavorite(id) {
-    return this.user.favorites.find(f => f.id === id)
+    if (this.user) {
+      return this.user.favorites.find(f => f.id === id);
+    }
+    return null;
   }
+
+  toggleFavorite(session: SESSION, type: string) {
+    if (type === 'add') {
+      this.user.favorites.push({ id: session.id, name: session.name });
+    } else {
+      const index = this.user.favorites.findIndex(f => f.id === session.id);
+      if (index > -1) {
+        this.user.favorites.splice(index, 1);
+      }
+    }
+    this.userService.updateUser(this.user);
+    this.genService.setUser(this.user);
+  }
+
   onExit() {
     this.router.navigate(['../..'], { relativeTo: this.activatedRoute })
   }

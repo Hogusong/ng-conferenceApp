@@ -13,9 +13,9 @@
       </div>
       <div class="favorite">
         <p *ngIf="!isFavorite(session.id)">
-          <i class="far fa-heart"></i></p>
+          <i class="far fa-heart" (click)="toggleFavorite(session, 'add')"></i></p>
         <p *ngIf="isFavorite(session.id)">
-          <i class="fas fa-heart fill-red"></i></p>
+          <i class="fas fa-heart fill-red" (click)="toggleFavorite(session, 'remove')"></i></p>
       </div>
     </div>
 
