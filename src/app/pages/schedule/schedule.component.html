@@ -44,7 +44,7 @@
       </div>
       <ul *ngFor="let session of group.sessions" [hidden]="session.hide">
         <li class="item-group">
-          <p>{{ session.name }}</p>
+          <p (click)="gotoSession(session.id)">{{ session.name }}</p>
           <p>
               {{session.timeStart}} &mdash; {{session.timeEnd}}: {{session.location}}
           </p>
@@ -90,3 +90,5 @@
             (exitResetFilter)="closeResetFilter()"></app-reset-filter>
 
 <app-tabs [selected]="'schedule'"></app-tabs>
+
+<!-- <router-outlet></router-outlet> -->

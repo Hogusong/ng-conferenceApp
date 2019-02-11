@@ -1,9 +1,16 @@
 /* Navigartin bar */
 .navbar {
+  width: 100%;;
   background-color: white;
   border: none;
   border-bottom: 1px solid lightgray;
   box-shadow: 2px 3px 0px 0px rgba(114, 114, 116, 0.2);
+}
+
+.fixed-top {
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 .dropdown-menu {

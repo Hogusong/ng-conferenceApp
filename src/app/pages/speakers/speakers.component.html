@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse navbar-fixed-top" [hidden]="showDetail">
+<nav class="navbar navbar-inverse fixed-top" [hidden]="showDetail">
   <div class="container-fluid bg-primary">
     <h4 class="dropdown"><span class="dropdown-toggle glyphicon glyphicon-menu-hamburger"
         data-toggle="dropdown"></span> &nbsp;Speakers
@@ -36,7 +36,7 @@
       </div>
       <div class="sessions">
         <ul *ngFor="let session of speaker.sessions">
-          <li>{{ session.name }}</li>
+          <li (click)="openSession(session.id)">{{ session.name }}</li>
         </ul>
       </div>
       <div class="speaker-footer">
@@ -58,3 +58,5 @@
       (closeDetail)="showDetail=false"></app-speaker-detail>
 
 <app-tabs [selected]="'speakers'"></app-tabs>
+
+<router-outlet></router-outlet>

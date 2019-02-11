@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { GeneralService } from 'src/app/providers/general.service';
 import { PARTOFDAY, SESSION, USER } from 'src/app/models';
@@ -37,7 +38,8 @@ export class ScheduleComponent implements OnInit {
   user: USER;
 
   constructor(private genService: GeneralService,
-              private sessionService: SessionService) {
+              private sessionService: SessionService,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -193,5 +195,9 @@ export class ScheduleComponent implements OnInit {
   closePeriod() {
     this.activeFabs1 = false;
     this.openPeriod = false;
+  }
+
+  gotoSession(id) {
+    this.router.navigate(['/session', id]);
   }
 }

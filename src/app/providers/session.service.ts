@@ -32,6 +32,15 @@ export class SessionService {
     return sessions;
   }
 
+  getSessionById(id: string): Promise<any> {
+    return this.sessionsCollection.doc(id).ref.get()
+      .then(doc => {
+        const session = doc.data() as SESSION ;
+        session.id = id;
+        return session;
+      });
+  }
+
   filterSession(session: any, options: any) {
     let matchesQueryText = false;
     if (options.queryText.length > 0) {

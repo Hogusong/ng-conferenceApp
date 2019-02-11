@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { SpeakerService } from 'src/app/providers/speaker.service';
 import { SPEAKER } from 'src/app/models';
 
@@ -13,8 +15,10 @@ export class SpeakersComponent implements OnInit {
   speaker: SPEAKER;
   queryText = '';
   showDetail = false;
+  navbar: any;
 
-  constructor(private speakerService: SpeakerService) { }
+  constructor(private speakerService: SpeakerService,
+              private router: Router) { }
 
   ngOnInit() {
     this.speakerService.getSpeakers().subscribe(res => this.speakers = res);
@@ -23,5 +27,9 @@ export class SpeakersComponent implements OnInit {
   openDetail(speaker) {
     this.speaker = speaker;
     this.showDetail = true;
+  }
+
+  openSession(id) {
+    this.router.navigate(['speakers/session', id])
   }
 }

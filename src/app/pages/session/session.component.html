@@ -1,0 +1,44 @@
+<div class="modal">
+  <div class="container-fluid header bg-primary">
+    <p (click)="onExit()"><i class="fas fa-arrow-left"></i>Exit</p>
+    <h4 *ngIf="session">{{ session.name }}</h4>
+  </div>
+      
+  <div class="session" *ngIf="session">
+    <div class="part-1">
+      <div class="tracks">
+        <ul *ngFor="let track of session.tracks">
+          <li>{{ track }}</li>
+        </ul>
+      </div>
+      <div class="favorite">
+        <p *ngIf="!isFavorite(session.id)">
+          <i class="far fa-heart"></i></p>
+        <p *ngIf="isFavorite(session.id)">
+          <i class="fas fa-heart fill-red"></i></p>
+      </div>
+    </div>
+
+    <div class="part-2">
+      <h4>{{ session.name }}</h4>
+      <p>{{ session.description }}</p>
+      <p id="date-time">{{ session.date }} ({{ session.timeStart }} - {{ session.timeEnd }})</p>
+      <p>{{ session.location }}</p>
+      <div class="speakers">
+        <p>Speakers</p>
+        <ul *ngFor="let id of session.speakerIDs">
+          <li>{{ findSpeaker(id) }}</li>
+        </ul>
+        <br>
+      </div>
+    </div>
+
+    <div class="part-3">
+        <li>Watch</li>
+        <li>Add a Calendar</li>
+        <li>Mark as Unwatched</li>
+        <li>Download Video<i class="fas fa-cloud-download-alt"></i></li>     
+        <li>Leave Feedback</li>   
+    </div>
+  </div>
+</div>

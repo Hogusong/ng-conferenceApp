@@ -29,6 +29,7 @@ import { PeriodComponent } from './pages/modals/period/period.component';
 import { SelectTrackComponent } from './pages/schedule/select-track/select-track.component';
 import { ResetFilterComponent } from './pages/schedule/reset-filter/reset-filter.component';
 import { SpeakerDetailComponent } from './pages/speakers/speaker-detail/speaker-detail.component';
+import { SessionComponent } from './pages/session/session.component';
 
 @NgModule({
   imports: [
@@ -63,7 +64,8 @@ import { SpeakerDetailComponent } from './pages/speakers/speaker-detail/speaker-
     PeriodComponent,
     SelectTrackComponent,
     ResetFilterComponent,
-    SpeakerDetailComponent
+    SpeakerDetailComponent,
+    SessionComponent
   ],
   bootstrap: [AppComponent],
   providers: []

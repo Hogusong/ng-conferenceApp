@@ -11,16 +11,17 @@ import { LoginComponent } from './pages/login/login.component';
 import { SupportComponent } from './pages/support/support.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { HomeComponent } from './pages/home/home.component';
-import { PeriodComponent } from './pages/modals/period/period.component';
+import { SessionComponent } from './pages/session/session.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'schedule', component: ScheduleComponent,
+  { path: 'schedule', component: ScheduleComponent },
+  { path: 'session/:id', component: SessionComponent },
+  { path: 'speakers', component: SpeakersComponent,
     children: [
-      { path: 'period/:from/:to', component: PeriodComponent },
+      { path: 'session/:id', component: SessionComponent },
     ] 
   },
-  { path: 'speakers', component: SpeakersComponent },
   { path: 'map', component: MapComponent },
   { path: 'about', component: AboutComponent },
   { path: 'account', component: AccountComponent },
