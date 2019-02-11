@@ -1,9 +1,19 @@
-.navbar {
-  margin-bottom: 1px;
+.options {
+  margin-bottom: 5px;
+  overflow: auto;
 }
 
 .glyphicon {
   font-size: 20px;
   padding: 0;
   margin-top: 5px;
+}
+
+.text-center p {
+  margin: 0;
+  padding: 0;
+}
+
+.text-center a {
+  padding-bottom: 5px;
 }

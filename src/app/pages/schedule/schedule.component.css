@@ -95,7 +95,7 @@ h4 span {
 .container-1 {
   position: fixed;
   margin: 1em;
-  bottom: 55px;
+  bottom: 50px;
   left: 0;
 }
 
@@ -124,7 +124,7 @@ h4 span {
 .container-2 {
   position: fixed;
   margin: 1em;
-  bottom: 55px;
+  bottom: 50px;
   right: 0;
 }
 
@@ -142,7 +142,6 @@ h4 span {
   position: relative;
   background-size: contain;
   font-size: 20px;
-  /* box-shadow: 2px 2px 0px 0px rgba(114, 114, 116, 0.2); */
 }
 
 .fabs-2 .btn {

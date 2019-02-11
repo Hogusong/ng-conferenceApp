@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { SpeakerService } from 'src/app/providers/speaker.service';
+import { SPEAKER } from 'src/app/models';
 
 @Component({
   selector: 'app-speakers',
@@ -8,9 +9,12 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class SpeakersComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute) { }
+  speakers: SPEAKER[]=[];
+  queryText = '';
+
+  constructor(private speakerService: SpeakerService) { }
 
   ngOnInit() {
+    this.speakerService.getSpeakers().subscribe(res => this.speakers = res);
   }
-
 }

@@ -1,4 +1,54 @@
-<p>
-  speakers works!
-</p>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid bg-primary">
+    <h4 class="dropdown"><span class="dropdown-toggle glyphicon glyphicon-menu-hamburger"
+        data-toggle="dropdown"></span> &nbsp;Speakers
+      <ul class="dropdown-menu">
+        <app-menu></app-menu>
+      </ul>
+    </h4>
+  </div>
+
+  <div class="row search">
+    <div class="col-xs-1">
+      <span class="glyphicon glyphicon-search" id="search"></span>
+    </div>
+    <div class="col-xs-10">
+      <input type="text" class="form-control" name="queryText"
+              [(ngModel)]="queryText" placeholder="search">
+    </div>
+    <div class="col-xs-1">
+      <span class="glyphicon glyphicon-remove" id="remove"
+            (click)="queryText=''" ></span>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid" id="body"
+      [hidden]="speakers.length === 0">
+  <ul *ngFor="let speaker of speakers">
+    <div class="container info-box" 
+        [hidden]="!speaker.name.toLowerCase().includes(queryText.toLowerCase())">
+      <div class="speaker-header">
+        <img [src]="speaker.profilePic" alt="Speaker's Avatar">
+        <p>{{ speaker.name }}</p>
+      </div>
+      <div class="sessions">
+        <ul *ngFor="let session of speaker.sessions">
+          <li>{{ session.name }}</li>
+        </ul>
+      </div>
+      <div class="speaker-footer">
+        <p>{{ speaker.about }}</p>
+        <div class="footer-icons">
+          <a [href]="'https://twitter.com/' + speaker.twitter" target="_blank">
+            <i class="fab fa-twitter"></i>TWEET
+          </a>
+          <a href=""><i class="fas fa-share-square"></i>SHARE</a>
+          <a href=""><i class="fas fa-folder-open"></i>CONTACT</a>
+        </div>
+      </div>
+    </div>
+  </ul>
+</div>
+
 <app-tabs [selected]="'speakers'"></app-tabs>
