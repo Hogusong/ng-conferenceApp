@@ -31,7 +31,6 @@ export class SessionComponent implements OnInit {
     this.sessionService.getSessionById(id).then(res => this.session = res);
     this.genService.getUser().then(res => this.user = res);
     this.speakerService.getSpeakers().subscribe(res => this.speakers = res);
-    console.log(id);
     this.navbar = document.getElementsByClassName('fixed-top')[0];
     this.navbar.setAttribute('position', 'relative')
     this.navbar.setAttribute('display', 'none');

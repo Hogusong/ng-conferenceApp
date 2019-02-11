@@ -15,8 +15,11 @@ import { SessionComponent } from './pages/session/session.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'schedule', component: ScheduleComponent },
-  { path: 'session/:id', component: SessionComponent },
+  { path: 'schedule', component: ScheduleComponent,
+    children: [
+      { path: 'session/:id', component: SessionComponent },
+    ] 
+  },
   { path: 'speakers', component: SpeakersComponent,
     children: [
       { path: 'session/:id', component: SessionComponent },

@@ -52,6 +52,9 @@ export class ScheduleComponent implements OnInit {
         this.openPeriod = true;
       }
     });
+    const navbar = document.getElementsByClassName('fixed-top')[0];
+    navbar.setAttribute('position', 'relative')
+    navbar.setAttribute('display', 'none');
   }
 
   updateSchedule() {
@@ -197,7 +200,7 @@ export class ScheduleComponent implements OnInit {
     this.openPeriod = false;
   }
 
-  gotoSession(id) {
-    this.router.navigate(['/session', id]);
+  openSession(id) {
+    this.router.navigate(['schedule/session', id]);
   }
 }
