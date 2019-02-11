@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<nav class="navbar navbar-inverse navbar-fixed-top" [hidden]="showDetail">
   <div class="container-fluid bg-primary">
     <h4 class="dropdown"><span class="dropdown-toggle glyphicon glyphicon-menu-hamburger"
         data-toggle="dropdown"></span> &nbsp;Speakers
@@ -24,13 +24,15 @@
 </nav>
 
 <div class="container-fluid" id="body"
-      [hidden]="speakers.length === 0">
+      [hidden]="speakers.length === 0 || showDetail">
   <ul *ngFor="let speaker of speakers">
     <div class="container info-box" 
         [hidden]="!speaker.name.toLowerCase().includes(queryText.toLowerCase())">
       <div class="speaker-header">
-        <img [src]="speaker.profilePic" alt="Speaker's Avatar">
-        <p>{{ speaker.name }}</p>
+        <img [src]="speaker.profilePic"
+              alt="Speaker's Avatar"
+              (click)="openDetail(speaker)">
+        <p (click)="openDetail(speaker)">{{ speaker.name }}</p>
       </div>
       <div class="sessions">
         <ul *ngFor="let session of speaker.sessions">
@@ -38,7 +40,7 @@
         </ul>
       </div>
       <div class="speaker-footer">
-        <p>{{ speaker.about }}</p>
+        <p (click)="openDetail(speaker)">{{ speaker.about }}</p>
         <div class="footer-icons">
           <a [href]="'https://twitter.com/' + speaker.twitter" target="_blank">
             <i class="fab fa-twitter"></i>TWEET
@@ -50,5 +52,9 @@
     </div>
   </ul>
 </div>
+
+<app-speaker-detail *ngIf="showDetail"
+      [speaker]="speaker"
+      (closeDetail)="showDetail=false"></app-speaker-detail>
 
 <app-tabs [selected]="'speakers'"></app-tabs>

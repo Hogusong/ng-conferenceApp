@@ -28,6 +28,7 @@ import { UploadImageComponent } from './pages/upload-image/upload-image.componen
 import { PeriodComponent } from './pages/modals/period/period.component';
 import { SelectTrackComponent } from './pages/schedule/select-track/select-track.component';
 import { ResetFilterComponent } from './pages/schedule/reset-filter/reset-filter.component';
+import { SpeakerDetailComponent } from './pages/speakers/speaker-detail/speaker-detail.component';
 
 @NgModule({
   imports: [
@@ -61,7 +62,8 @@ import { ResetFilterComponent } from './pages/schedule/reset-filter/reset-filter
     UploadImageComponent,
     PeriodComponent,
     SelectTrackComponent,
-    ResetFilterComponent
+    ResetFilterComponent,
+    SpeakerDetailComponent
   ],
   bootstrap: [AppComponent],
   providers: []

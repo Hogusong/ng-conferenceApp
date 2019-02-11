@@ -1,0 +1,40 @@
+<div class="container-fluid header bg-primary">
+  <p (click)="onExit()"><i class="fas fa-arrow-left"></i>Exit</p>
+  <h4>{{ speaker.name }}</h4>
+</div>
+
+<div class="detail-image">
+  <img [src]="speaker.profilePic" alt="Speaker's Avatar">
+  <div class="detail-icons">
+    <a [href]="'http://twitter.com/' + speaker.twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+    <a [href]="'http://github.com/' + speaker.github" target="_blank"><i class="fab fa-github"></i></a>
+    <a [href]="'http://instagram.com/' + speaker.instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+  </div>
+</div>
+
+<div class="detail-info">
+  <div class="title">
+    <p>Name</p>
+    <p>Location</p>
+    <p>Email</p>
+    <p>Phone</p>
+    <p>About</p>
+    <p>Github</p>
+    <p>Twitter</p>
+    <p>Instgram</p>
+    <p>Sessions</p>
+  </div>
+  <div class="info">
+    <p>{{ speaker.name }}</p>
+    <p>{{ speaker.location }}</p>
+    <p>{{ speaker.email }}</p>
+    <p>{{ speaker.phone }}</p>
+    <p>{{ speaker.about }}</p>
+    <p>{{ speaker.github }}</p>
+    <p>{{ speaker.twitter }}</p>
+    <p>{{ speaker.instagram ? speaker.instagram : '---' }}</p>
+    <ul *ngFor="let session of speaker.sessions">
+      <li>{{ session.name}}</li>
+    </ul>
+  </div>
+</div>

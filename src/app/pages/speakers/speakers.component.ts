@@ -10,11 +10,18 @@ import { SPEAKER } from 'src/app/models';
 export class SpeakersComponent implements OnInit {
 
   speakers: SPEAKER[]=[];
+  speaker: SPEAKER;
   queryText = '';
+  showDetail = false;
 
   constructor(private speakerService: SpeakerService) { }
 
   ngOnInit() {
     this.speakerService.getSpeakers().subscribe(res => this.speakers = res);
+  }
+
+  openDetail(speaker) {
+    this.speaker = speaker;
+    this.showDetail = true;
   }
 }
