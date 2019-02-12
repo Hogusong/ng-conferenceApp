@@ -1,4 +1,14 @@
-<p>
-  map works!
-</p>
+<nav class="navbar navbar-inverse fixed-top">
+  <div class="container-fluid bg-primary">
+    <h4 class="dropdown"><span class="dropdown-toggle glyphicon glyphicon-menu-hamburger"
+        data-toggle="dropdown"></span> &nbsp;Map
+      <ul class="dropdown-menu">
+        <app-menu></app-menu>
+      </ul>
+    </h4>
+  </div>
+</nav>
+
+<div #mapCanvas class="map-canvas"></div>
+
 <app-tabs [selected]="'map'"></app-tabs>

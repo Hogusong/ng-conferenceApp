@@ -3,7 +3,7 @@ import { AngularFirestoreCollection,
   AngularFirestoreDocument,
   AngularFirestore }   from 'angularfire2/firestore';
 
-import { USER, PERIOD, PARTOFDAY } from '../models';
+import { USER, PERIOD, PARTOFDAY, MAP } from '../models';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -15,9 +15,14 @@ export class GeneralService {
   partsOfDayCollection: AngularFirestoreCollection<PARTOFDAY>;
   partOfDayDoc: AngularFirestoreDocument<PARTOFDAY>;
 
+  mapsCollection: AngularFirestoreCollection<MAP>;
+  maps: Observable<MAP[]>;
+
   constructor(private db: AngularFirestore) {
     this.partsOfDayCollection = this.db.collection(
       'partOfDay', ref => ref.orderBy('indexKey', 'asc'));
+    this.mapsCollection = this.db.collection(
+      'maps', ref => ref.orderBy('name', 'asc'));
   }
 
   getPartsOfDay(): Observable<PARTOFDAY[]> {
@@ -97,5 +102,16 @@ export class GeneralService {
       return count === 1;
     }
     return true;
+  }
+
+  getMap() {
+    this.maps = this.mapsCollection.snapshotChanges()
+      .pipe(map(response => {
+        return response.map(action => {
+          const data = action.payload.doc.data() as MAP;
+          return data;
+        });
+      }));
+      return this.maps ;
   }
 }

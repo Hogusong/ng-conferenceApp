@@ -1,0 +1,23 @@
+.fixed-top {
+  margin: 0;
+}
+
+.map-canvas {
+  position: absolute;
+
+  height: 84%;
+  width: 100%;
+
+  background-color: transparent;
+
+  opacity: 0;
+  transition: opacity 150ms ease-in;
+}
+
+.show-map {
+  opacity: 1;
+}
+
+h4 {
+  padding: 3px 0;
+}
