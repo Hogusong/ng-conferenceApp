@@ -32,6 +32,7 @@ const routes: Routes = [
   { path: 'support', component: SupportComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'tutorial', component: TutorialComponent},
+  { path: 'setup', loadChildren: './setup/setup.module#SetupModule' },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
 

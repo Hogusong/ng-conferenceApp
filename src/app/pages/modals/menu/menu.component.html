@@ -41,8 +41,8 @@
   <a *ngIf="username !== 'admin'"><h4>Tutorial</h4></a>
   <a *ngIf="username === 'admin'"><h4>Configuration</h4></a>
 </li>
-<li class="navigate" (click)="navigate('tutorial')">
-  <a *ngIf="username !== 'admin'"><span class="glyphicon glyphicon-education"></span>Show Tutorial</a>
-  <a *ngIf="username === 'admin'"><span class="glyphicon glyphicon-wrench"></span>Setup Mode</a>
+<li class="navigate">
+  <a *ngIf="username !== 'admin'" (click)="navigate('tutorial')"><span class="glyphicon glyphicon-education"></span>Show Tutorial</a>
+  <a *ngIf="username === 'admin'" (click)="navigate('setup')"><span class="glyphicon glyphicon-wrench"></span>Setup Mode</a>
 </li>
             

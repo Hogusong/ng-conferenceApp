@@ -65,7 +65,7 @@ import { SessionComponent } from './pages/session/session.component';
     SelectTrackComponent,
     ResetFilterComponent,
     SpeakerDetailComponent,
-    SessionComponent
+    SessionComponent,
   ],
   bootstrap: [AppComponent],
   providers: []
