@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse fixed-top" [hidden]="showDetail">
+<nav class="navbar navbar-inverse navbar-fixed-top" [hidden]="!showSessions">
   <div class="container-fluid bg-primary">
     <h4 class="dropdown"><span class="dropdown-toggle glyphicon glyphicon-menu-hamburger"
         data-toggle="dropdown"></span> &nbsp;Sessions
@@ -6,7 +6,7 @@
         <app-setup-menu></app-setup-menu>
       </ul>
     </h4>
-    <p><a (click)="onEdit('add')">Add New</a></p>
+    <p><a (click)="onEditSession('add')">Add New</a></p>
   </div>
 
   <div class="row search">
@@ -24,5 +24,36 @@
   </div>
 </nav>
 
+<div class="container-fluid" id="body" *ngIf="sessions"
+      [hidden]="sessions.length === 0 || !showSessions">
+  <ul *ngFor="let session of sessions">
+    <li *ngIf="session.name.toLowerCase().includes(queryText.toLowerCase())">
+      <p id="name" (click)="onEditSession(session.id)">
+        {{ session.name }} ({{ session.date }})
+      </p>
+      <p id="trash" (click)="onRemoveSession(session.id)">
+        <a class="glyphicon glyphicon-trash"></a>
+      </p>
+    </li>
+  </ul>
+</div>
+
+<div class="fab-group" [hidden]="!showSessions">
+  <div class="container-1">
+    <div class="fabs-1" *ngIf="activeFabs1">
+      <button (click)="openPeriod=true">New</button>
+      <p>{{ dateFrom }}</p>
+      <p>{{ dateTo }}</p>
+    </div>
+    <a class="btn button-0 bg-primary" *ngIf="!activeFabs1" (click)="activeFabs1=true">Period</a>
+    <a class="btn button-0 bg-primary" *ngIf="activeFabs1" (click)="activeFabs1=false">X</a>
+  </div>
+</div>  
+
+<app-setup-period *ngIf="openPeriod"
+            (submitPeriod)="getNewPeriod($event)"
+            (exitPeriod)="closePeriod()"
+            [dateFrom]="dateFrom"
+            [dateTo]="dateTo"></app-setup-period>
 
 <app-setup-tabs [selected]="'sessions'"></app-setup-tabs>

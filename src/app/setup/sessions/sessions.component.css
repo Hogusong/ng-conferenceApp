@@ -7,7 +7,7 @@
   box-shadow: 2px 3px 0px 0px rgba(114, 114, 116, 0.2);
 }
 
-.fixed-top {
+.navbar-fixed-top {
   position: fixed;
   top: 0;
   left: 0;
@@ -57,4 +57,90 @@ h4 span {
 .search input {
   box-shadow: 3px 3px 0px 0px rgba(114, 114, 116, 0.2);
   margin-bottom: 3px;
+}
+
+/* Body */
+#body {
+  margin-top: 95px;
+  padding-bottom: 50px;
+}
+
+#body ul {
+  padding: 0;
+  margin: 0;
+  margin-left: 10px;
+  list-style: none;
+}
+
+#body ul li {
+  display: inline-block;
+  padding-right: 10px;
+  width: 100%;
+  border-bottom: 1px solid lightgray;
+}
+
+#name {
+  float: left;
+  padding-top: 0;
+}
+
+#trash {
+  float: right;
+}
+
+#body a {
+  color: red;
+}
+
+/* Floating Action Buttons */
+.container-1 {
+  position: fixed;
+  margin: 1em;
+  bottom: 50px;
+  left: 0;
+}
+
+.container-1 a {
+  float: left;
+  font-size: 14px;
+  padding: 15px 0px 0 0;
+  color: white
+}
+
+.fabs-1 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.fabs-1 p, .fabs-1 button {
+  background: rgb(93, 201, 243);
+  color: white;
+  padding: 5px 10px;
+  margin: 8px 0 0 0;
+  font-weight: 400;
+  border-radius: 5px;
+  outline: none;
+}
+
+.btn {
+  border-radius: 50%;
+  display: block;
+  width: 56px;
+  height: 56px;
+  margin: 10px auto 0;
+  outline: none;
+  position: relative;
+  background-size: contain;
+  font-size: 20px;
+}
+
+.button-0 {
+  background-size: contain;
+  margin: auto;
+}
+
+.button-0 i {
+  font-size: 25px;
+  margin-top: 8px;
+  color: white
 }

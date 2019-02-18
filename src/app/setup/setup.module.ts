@@ -6,6 +6,7 @@ import { SetupTabsComponent } from './setup-tabs/setup-tabs.component';
 import { SessionsComponent } from './sessions/sessions.component';
 import { FormsModule } from "@angular/forms";
 import { SetupMenuComponent } from "./setup-menu/setup-menu.component";
+import { SetupPeriodComponent } from "./setup-period/setup-period.component";
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { SetupMenuComponent } from "./setup-menu/setup-menu.component";
     SetupComponent,
     SetupTabsComponent,
     SessionsComponent,
-    SetupMenuComponent
+    SetupMenuComponent,
+    SetupPeriodComponent
   ]
 })
 export class SetupModule {}
