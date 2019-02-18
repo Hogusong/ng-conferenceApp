@@ -114,4 +114,18 @@ export class GeneralService {
       }));
       return this.maps ;
   }
+
+  getDateFormat(date?: Date) {
+    if (!date) {
+      date = new Date();
+    }
+    const dateArray = date.toLocaleDateString().split('/');
+    return dateArray[2] + '-' +
+           this.get2DigitString(+dateArray[0]) + '-' +
+           this.get2DigitString(+dateArray[1]);
+  }
+
+  get2DigitString(num: number): string {
+    return (num < 10) ? '0' + num : '' + num ;   
+  }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SESSION } from 'src/app/models';
 import { SessionService } from 'src/app/providers/session.service';
 import { GeneralService } from 'src/app/providers/general.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-sessions',
@@ -15,31 +16,43 @@ export class SessionsComponent implements OnInit {
   dateTo: string = '2019-02-28';
   queryText = '';
   openPeriod = false;
-  showSessions = true;
+  activeFabs = false;
 
   constructor(private sessionService: SessionService,
-              private genService: GeneralService) { }
+              private genService: GeneralService,
+              private activatedRoute: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit() {
     this.genService.getPeriod().then(period => {
       if (period) {
-        this.dateFrom = period.dateFrom;
-        this.dateTo = period.dateTo;
-        this.sessionService.getSessionsInPeriod(this.dateFrom, this.dateTo)
-          .subscribe(res => {
-            this.sessions = res;
-          })
+        this.getSession(period.dateFrom, period.dateTo);
       } else {
         this.openPeriod = true;
       }
     });
   }
 
+  getSession(from, to) {
+    this.dateFrom = from;
+    this.dateTo = to;
+    this.sessionService.getSessionsInPeriod(from, to)
+    .subscribe(res => {
+      this.sessions = res;
+    })
+  }
+
   onEditSession(type: string) {
-    console.log(type);
+    this.router.navigate(['edit', type], { relativeTo: this.activatedRoute });
   }
 
   onRemoveSession(id: string) {
     console.log('removed:', id);
+  }
+
+  getNewPeriod(period) {
+    this.openPeriod = false;
+    this.activeFabs = false;
+    this.getSession(period.dateFrom, period.dateTo);
   }
 }

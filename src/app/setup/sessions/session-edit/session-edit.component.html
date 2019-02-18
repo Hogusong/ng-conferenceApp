@@ -1,0 +1,56 @@
+<div class="modal">
+  <nav class="title bg-primary navbar-fixed-top">
+    <h4>{{ mode }} Session</h4>
+    <button class="btn-cancel" (click)="onExit()">Cancel</button>
+    <button class="btn-submit" type="submit" (click)="onSubmit()">Submit</button>
+  </nav>
+
+  <div class="body" *ngIf="session">
+    <div class="row input-item">
+      <label class="col-xs-2">Title</label>
+      <input class="col-xs-10" type="text" [(ngModel)]="session.name">
+    </div>
+    <div class="row input-item">
+      <label class="col-xs-2">Date</label>
+      <input class="col-xs-6" type="date" [(ngModel)]="session.date">
+    </div>
+    <div class="row input-item">
+      <label class="col-xs-2">From</label>
+      <input class="col-xs-4" type="time" [(ngModel)]="session.timeStart">
+      <label class="col-xs-2">To</label>
+      <input class="col-xs-4" type="time" [(ngModel)]="session.timeEnd">
+    </div>
+    <div class="row input-item">
+      <label class="col-xs-3">Location</label>
+      <input class="col-xs-9" type="text" [(ngModel)]="session.location">
+    </div>
+    <div class="description">
+      <label>Description</label>
+      <textarea type="date" [(ngModel)]="session.description"></textarea>
+    </div>
+    <div class="speakers">
+      <div class="subtitle">
+        <p>Speaker</p>
+        <i class="fas fa-plus"></i>
+      </div>
+      <ul *ngFor="let s of speakers">
+        <li *ngIf="isInSession(s.id, 'speaker')">
+          <p>{{ s.name }} ( {{ s.phone }} )</p>
+          <i class="fas fa-trash" (click)="removeSpeaker(s.id)"></i>
+        </li>
+      </ul>
+    </div>
+    <div class="tracks">
+      <div class="subtitle">
+        <p>Tracks</p>
+        <i class="fas fa-plus"></i>
+      </div>
+      <ul *ngFor="let t of tracks">
+        <li *ngIf="isInSession(t.name, 'tracks')">
+          <p>{{ t.name }}</p>
+          <i class="fas fa-trash" (click)= "removeTrack(t.name)"></i>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

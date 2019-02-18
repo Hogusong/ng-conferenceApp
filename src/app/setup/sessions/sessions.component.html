@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse navbar-fixed-top" [hidden]="!showSessions">
+<nav class="navbar navbar-inverse fixed-top">
   <div class="container-fluid bg-primary">
     <h4 class="dropdown"><span class="dropdown-toggle glyphicon glyphicon-menu-hamburger"
         data-toggle="dropdown"></span> &nbsp;Sessions
@@ -6,7 +6,7 @@
         <app-setup-menu></app-setup-menu>
       </ul>
     </h4>
-    <p><a (click)="onEditSession('add')">Add New</a></p>
+    <p><a (click)="onEditSession('New')">Add New</a></p>
   </div>
 
   <div class="row search">
@@ -25,28 +25,28 @@
 </nav>
 
 <div class="container-fluid" id="body" *ngIf="sessions"
-      [hidden]="sessions.length === 0 || !showSessions">
+      [hidden]="sessions.length === 0">
   <ul *ngFor="let session of sessions">
     <li *ngIf="session.name.toLowerCase().includes(queryText.toLowerCase())">
       <p id="name" (click)="onEditSession(session.id)">
         {{ session.name }} ({{ session.date }})
       </p>
       <p id="trash" (click)="onRemoveSession(session.id)">
-        <a class="glyphicon glyphicon-trash"></a>
+        <i class="fas fa-trash"></i>
       </p>
     </li>
   </ul>
 </div>
 
-<div class="fab-group" [hidden]="!showSessions">
+<div class="fab-group">
   <div class="container-1">
-    <div class="fabs-1" *ngIf="activeFabs1">
+    <div class="fabs-1" *ngIf="activeFabs">
       <button (click)="openPeriod=true">New</button>
       <p>{{ dateFrom }}</p>
       <p>{{ dateTo }}</p>
     </div>
-    <a class="btn button-0 bg-primary" *ngIf="!activeFabs1" (click)="activeFabs1=true">Period</a>
-    <a class="btn button-0 bg-primary" *ngIf="activeFabs1" (click)="activeFabs1=false">X</a>
+    <a class="btn button-0 bg-primary" *ngIf="!activeFabs" (click)="activeFabs=true">Period</a>
+    <a class="btn button-0 bg-primary" *ngIf="activeFabs" (click)="activeFabs=false">X</a>
   </div>
 </div>  
 
@@ -57,3 +57,5 @@
             [dateTo]="dateTo"></app-setup-period>
 
 <app-setup-tabs [selected]="'sessions'"></app-setup-tabs>
+
+<router-outlet></router-outlet>

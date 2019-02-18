@@ -7,6 +7,7 @@ import { SessionsComponent } from './sessions/sessions.component';
 import { FormsModule } from "@angular/forms";
 import { SetupMenuComponent } from "./setup-menu/setup-menu.component";
 import { SetupPeriodComponent } from "./setup-period/setup-period.component";
+import { SessionEditComponent } from './sessions/session-edit/session-edit.component';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import { SetupPeriodComponent } from "./setup-period/setup-period.component";
     SetupTabsComponent,
     SessionsComponent,
     SetupMenuComponent,
-    SetupPeriodComponent
+    SetupPeriodComponent,
+    SessionEditComponent
   ]
 })
 export class SetupModule {}

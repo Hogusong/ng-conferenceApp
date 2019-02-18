@@ -2,52 +2,52 @@
   <div class="container-fluid bg-primary">
     <div class="row options">
       <div class="col-xs-2 text-center">
-          <p><span class="glyphicon glyphicon-list-alt" routerLink="sessions"
+          <p><span class="glyphicon glyphicon-list-alt" routerLink="/setup/sessions"
                    [ngStyle]="{ color: selected==='sessions' ? selectedColor : 'white' }"></span>
           </p>
           <a  [ngStyle]="{ color: selected==='sessions' ? selectedColor : 'white' }"
-              routerLink="sessions">Session</a>
+              routerLink="/setup/sessions">Session</a>
       </div>
 
       <div class="col-xs-2 text-center">
-          <p><span class="glyphicon glyphicon-user" routerLink="speakers"
+          <p><span class="glyphicon glyphicon-user" routerLink="/setup/speakers"
                    [ngStyle]="{ color: selected==='speakers' ? selectedColor : 'white' }"></span>
           </p>
           <a  [ngStyle]="{ color: selected==='speakers' ? selectedColor : 'white' }"
-              routerLink="speakers">Speaker</a>
+              routerLink="/setup/speakers">Speaker</a>
       </div>
 
       <div class="col-xs-2 text-center">
-        <p><span class="glyphicon glyphicon-tags" routerLink="tasks"
+        <p><span class="glyphicon glyphicon-tags" routerLink="/setup/tasks"
                  [ngStyle]="{ color: selected==='tasks' ? selectedColor : 'white' }"></span>
         </p>
         <a  [ngStyle]="{ color: selected==='tasks' ? selectedColor : 'white' }"
-            routerLink="tasks">Tasks</a>
+            routerLink="/setup/tasks">Tasks</a>
       </div>
 
       <div class="col-xs-2 text-center">
-        <p><span class="glyphicon glyphicon-hourglass" routerLink="partOfDay"
+        <p><span class="glyphicon glyphicon-hourglass" routerLink="/setup/partOfDay"
                  [ngStyle]="{ color: selected==='partOfDay' ? selectedColor : 'white' }"></span>
         </p>
         <a  [ngStyle]="{ color: selected==='partOfDay' ? selectedColor : 'white' }"
-            routerLink="partOfDay">P.O.D</a>
+            routerLink="/setup/partOfDay">P.O.D</a>
       </div>
 
       <div class="col-xs-2 text-center">
-        <p><span class="glyphicon glyphicon-picture" routerLink="map"
+        <p><span class="glyphicon glyphicon-picture" routerLink="/setup/map"
             [ngStyle]="{ color: selected==='map' ? selectedColor : 'white' }"></span>
         </p>
         <a  [ngStyle]="{ color: selected==='map' ? selectedColor : 'white' }"
-            routerLink="map">Map</a>
+            routerLink="/setup/map">Map</a>
       </div>
 
       <div class="col-xs-2 text-center">
           <p><span class="glyphicon glyphicon-envelope" 
                    [ngStyle]="{ color: selected==='support' ? selectedColor : 'white' }"
-                   routerLink="support"></span>
+                   routerLink="/setup/support"></span>
           </p>
           <a  [ngStyle]="{ color: selected==='support' ? selectedColor : 'white' }"
-              routerLink="support">Support</a>
+              routerLink="/setup/support">Support</a>
       </div>
     </div>
   </div>
