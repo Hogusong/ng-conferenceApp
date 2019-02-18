@@ -1,0 +1,43 @@
+<li class="main-title">
+  <a><h3>Menu</h3></a>
+</li>
+<hr>
+
+<li class="sub-title">
+  <a><h4>Navigate</h4></a>
+</li>
+<li class="navigate" (click)="navigate('/schedule')">
+  <a><span class="glyphicon glyphicon-calendar"></span>Schedule</a>
+</li>
+<li class="navigate" (click)="navigate('/speakers')">
+  <a><span class="glyphicon glyphicon-user"></span>Speakers</a>
+</li>
+<li class="navigate" (click)="navigate('/map')">
+  <a><span class="glyphicon glyphicon-picture"></span>Map</a>
+</li>
+<li class="navigate" (click)="navigate('/about')">
+  <a><span class="glyphicon glyphicon-question-sign"></span>About</a>
+</li>
+<hr>
+
+<li class="sub-title">
+  <a><h4>Account</h4></a>
+</li>
+<li class="navigate">
+  <a (click)="navigate('/account')"><span class="glyphicon glyphicon-user"></span>Account</a>
+</li>
+<li class="navigate">
+  <a (click)="navigate('#')"><span class="glyphicon glyphicon-question-sign"></span>Support</a>
+</li>
+<li class="navigate">
+  <a (click)="logout()"><span class="glyphicon glyphicon-log-out"></span>Logout</a>
+</li>
+<hr>
+
+<li class="sub-title">
+  <a><h4>Tutorial</h4></a>
+</li>
+<li class="navigate">
+  <a (click)="navigate('/tutorial')"><span class="glyphicon glyphicon-education"></span>Show Tutorial</a>
+</li>
+            

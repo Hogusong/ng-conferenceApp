@@ -1,0 +1,28 @@
+<nav class="navbar navbar-inverse fixed-top" [hidden]="showDetail">
+  <div class="container-fluid bg-primary">
+    <h4 class="dropdown"><span class="dropdown-toggle glyphicon glyphicon-menu-hamburger"
+        data-toggle="dropdown"></span> &nbsp;Sessions
+      <ul class="dropdown-menu">
+        <app-setup-menu></app-setup-menu>
+      </ul>
+    </h4>
+    <p><a (click)="onEdit('add')">Add New</a></p>
+  </div>
+
+  <div class="row search">
+    <div class="col-xs-1">
+      <span class="glyphicon glyphicon-search" id="search"></span>
+    </div>
+    <div class="col-xs-10">
+      <input type="text" class="form-control" name="queryText"
+              [(ngModel)]="queryText" placeholder="search">
+    </div>
+    <div class="col-xs-1">
+      <span class="glyphicon glyphicon-remove" id="remove"
+            (click)="queryText=''" ></span>
+    </div>
+  </div>
+</nav>
+
+
+<app-setup-tabs [selected]="'sessions'"></app-setup-tabs>

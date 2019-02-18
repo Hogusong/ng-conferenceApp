@@ -1,0 +1,28 @@
+.main-title {
+  padding: 0;
+  margin-top: -15px;
+  margin-left: 25px;
+  height: 20px;
+}
+
+a {
+  color: black;
+}
+
+span {
+  margin-right: 12px;
+}
+
+.sub-title {
+  margin: -10px 0 0 25px;
+}
+
+.sub-title h4 {
+  margin-bottom: 10px;
+  color: rgb(241, 100, 100);
+}
+
+.navigate {
+  margin: 12px 0 10px 45px;
+  font-size: 1.1em;
+}

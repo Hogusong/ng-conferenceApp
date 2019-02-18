@@ -1,0 +1,54 @@
+<nav class="navbar navbar-inverse navbar-fixed-bottom">
+  <div class="container-fluid bg-primary">
+    <div class="row options">
+      <div class="col-xs-2 text-center">
+          <p><span class="glyphicon glyphicon-list-alt" routerLink="sessions"
+                   [ngStyle]="{ color: selected==='sessions' ? selectedColor : 'white' }"></span>
+          </p>
+          <a  [ngStyle]="{ color: selected==='sessions' ? selectedColor : 'white' }"
+              routerLink="sessions">Session</a>
+      </div>
+
+      <div class="col-xs-2 text-center">
+          <p><span class="glyphicon glyphicon-user" routerLink="speakers"
+                   [ngStyle]="{ color: selected==='speakers' ? selectedColor : 'white' }"></span>
+          </p>
+          <a  [ngStyle]="{ color: selected==='speakers' ? selectedColor : 'white' }"
+              routerLink="speakers">Speaker</a>
+      </div>
+
+      <div class="col-xs-2 text-center">
+        <p><span class="glyphicon glyphicon-tags" routerLink="tasks"
+                 [ngStyle]="{ color: selected==='tasks' ? selectedColor : 'white' }"></span>
+        </p>
+        <a  [ngStyle]="{ color: selected==='tasks' ? selectedColor : 'white' }"
+            routerLink="tasks">Tasks</a>
+      </div>
+
+      <div class="col-xs-2 text-center">
+        <p><span class="glyphicon glyphicon-hourglass" routerLink="partOfDay"
+                 [ngStyle]="{ color: selected==='partOfDay' ? selectedColor : 'white' }"></span>
+        </p>
+        <a  [ngStyle]="{ color: selected==='partOfDay' ? selectedColor : 'white' }"
+            routerLink="partOfDay">P.O.D</a>
+      </div>
+
+      <div class="col-xs-2 text-center">
+        <p><span class="glyphicon glyphicon-picture" routerLink="map"
+            [ngStyle]="{ color: selected==='map' ? selectedColor : 'white' }"></span>
+        </p>
+        <a  [ngStyle]="{ color: selected==='map' ? selectedColor : 'white' }"
+            routerLink="map">Map</a>
+      </div>
+
+      <div class="col-xs-2 text-center">
+          <p><span class="glyphicon glyphicon-envelope" 
+                   [ngStyle]="{ color: selected==='support' ? selectedColor : 'white' }"
+                   routerLink="support"></span>
+          </p>
+          <a  [ngStyle]="{ color: selected==='support' ? selectedColor : 'white' }"
+              routerLink="support">Support</a>
+      </div>
+    </div>
+  </div>
+</nav>
