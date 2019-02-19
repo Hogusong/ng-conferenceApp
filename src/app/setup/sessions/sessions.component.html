@@ -31,7 +31,7 @@
       <p id="name" (click)="onEditSession(session.id)">
         {{ session.name }} ({{ session.date }})
       </p>
-      <p id="trash" (click)="onRemoveSession(session.id)">
+      <p id="trash" (click)="onRemoveSession(session)">
         <i class="fas fa-trash"></i>
       </p>
     </li>
@@ -54,8 +54,14 @@
             (submitPeriod)="getNewPeriod($event)"
             (exitPeriod)="closePeriod()"
             [dateFrom]="dateFrom"
-            [dateTo]="dateTo"></app-setup-period>
+            [dateTo]="dateTo">
+</app-setup-period>
 
-<app-setup-tabs [selected]="'sessions'"></app-setup-tabs>
+<app-confirm *ngIf="activateConfirm"
+            (confirm)="getConfirm($event)"
+            [confirmMessage]="confirmMessage"
+            [confirmTitle]="confirmTitle">
+</app-confirm>
+<app-setup-tabs *ngIf="!activateConfirm" [selected]="'sessions'"></app-setup-tabs>
 
 <router-outlet></router-outlet>

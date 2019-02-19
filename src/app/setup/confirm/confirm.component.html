@@ -1,0 +1,16 @@
+<div class="modal-confirm">
+  <div class="modal-content">
+    <h3 class="header">Confirm Browser</h3>
+    <div class="confirm">
+      <p id="message">{{ confirmMessage }}</p>
+      <p id="title">{{ confirmTitle }}</p>
+    </div>
+    <div class="buttons">
+      <button class="btn btn-primary" type="button"
+              (click)="getConfirm(false)">Cancel</button>
+      <button class="btn btn-primary" type="submit"
+              (click)="getConfirm(true)">Confirm</button>
+    </div>
+  </div>
+</div>
+  

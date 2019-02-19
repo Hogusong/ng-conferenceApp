@@ -41,6 +41,24 @@ export class SessionService {
       });
   }
 
+  addNewSession(session: SESSION) {
+    return this.sessionsCollection.add(session)
+      .then(docRef => docRef.id )
+  }
+
+  updateSession(session: SESSION) {
+    const id = session.id;
+    delete(session.id);
+    this.sessionDoc = this.db.doc(`sessions/${id}`);
+    this.sessionDoc.update(session);
+    session.id = id;
+  }
+
+  removeSession(session: SESSION) {
+    this.sessionDoc = this.db.doc(`sessions/${session.id}`);
+    this.sessionDoc.delete();
+  }
+
   filterSession(session: any, options: any) {
     let matchesQueryText = false;
     if (options.queryText.length > 0) {

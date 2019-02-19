@@ -31,7 +31,7 @@
     <div class="speakers">
       <div class="subtitle">
         <p>Speaker</p>
-        <i class="fas fa-plus"></i>
+        <i class="fas fa-plus" (click)="selectSpeakers()"></i>
       </div>
       <ul *ngFor="let s of speakers">
         <li *ngIf="isInSession(s.id, 'speaker')">
@@ -43,7 +43,7 @@
     <div class="tracks">
       <div class="subtitle">
         <p>Tracks</p>
-        <i class="fas fa-plus"></i>
+        <i class="fas fa-plus" (click)="selectTracks()"></i>
       </div>
       <ul *ngFor="let t of tracks">
         <li *ngIf="isInSession(t.name, 'tracks')">

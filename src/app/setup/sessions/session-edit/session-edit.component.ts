@@ -16,6 +16,7 @@ export class SessionEditComponent implements OnInit {
   id: string = '';
   mode: string = '';
   navbar: any;
+  errorMessage = '';
 
   session: SESSION = {
     name: '',
@@ -76,7 +77,19 @@ export class SessionEditComponent implements OnInit {
   }
 
   onSubmit() {
-    this.onExit();
+    this.session.name = this.session.name.trim();
+    if (this.session.name.length < 3) {
+      this.errorMessage = 'At least 3 letters are required for Title.'
+    } else if (this.session.timeEnd < this.session.timeStart) {
+      this.errorMessage = "Ending time cannot be earlier than Starting time."
+    } else {
+      if (this.mode === 'New') {
+        this.sessionService.addNewSession(this.session);
+      } else {
+        this.sessionService.updateSession(this.session);
+      }
+      this.onExit();
+    }
   }
 
   onExit() {

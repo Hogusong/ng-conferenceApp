@@ -20,7 +20,6 @@ import { AccountComponent } from './pages/account/account.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { SupportComponent } from './pages/support/support.component';
-import { AlertComponent } from './pages/modals/alert/alert.component';
 import { HomeComponent } from './pages/home/home.component';
 import { FileSizePipe } from './pipe/file-size.pipe';
 import { DropZoneDirective } from './directive/drop-zone.directive';
@@ -56,7 +55,6 @@ import { SessionComponent } from './pages/session/session.component';
     LoginComponent,
     SignupComponent,
     SupportComponent,
-    AlertComponent,
     HomeComponent,
     FileSizePipe,
     DropZoneDirective,

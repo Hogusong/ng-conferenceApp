@@ -8,19 +8,22 @@ import { FormsModule } from "@angular/forms";
 import { SetupMenuComponent } from "./setup-menu/setup-menu.component";
 import { SetupPeriodComponent } from "./setup-period/setup-period.component";
 import { SessionEditComponent } from './sessions/session-edit/session-edit.component';
+import { ConfirmComponent } from "./confirm/confirm.component";
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    SetupRoutingModule],
+    SetupRoutingModule
+  ],
   declarations: [
     SetupComponent,
     SetupTabsComponent,
     SessionsComponent,
     SetupMenuComponent,
     SetupPeriodComponent,
-    SessionEditComponent
+    SessionEditComponent,
+    ConfirmComponent
   ]
 })
 export class SetupModule {}

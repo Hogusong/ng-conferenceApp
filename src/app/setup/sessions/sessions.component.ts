@@ -12,11 +12,15 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class SessionsComponent implements OnInit {
 
   sessions: SESSION[];
+  selectedSession: SESSION;
   dateFrom: string = '2019-01-01';
   dateTo: string = '2019-02-28';
   queryText = '';
   openPeriod = false;
   activeFabs = false;
+  activateConfirm = false;
+  confirmTitle: string;
+  confirmMessage: string;
 
   constructor(private sessionService: SessionService,
               private genService: GeneralService,
@@ -46,8 +50,19 @@ export class SessionsComponent implements OnInit {
     this.router.navigate(['edit', type], { relativeTo: this.activatedRoute });
   }
 
-  onRemoveSession(id: string) {
-    console.log('removed:', id);
+  onRemoveSession(session: SESSION) {
+    this.activateConfirm = true;
+    this.selectedSession = session;
+    this.confirmMessage = 'Are you sure to delete this session?';
+    this.confirmTitle = session.name;
+  }
+
+  getConfirm(result) {
+    if (result) {
+      this.sessionService.removeSession(this.selectedSession);
+    }
+    this.activateConfirm = false;
+    this.selectedSession = null;
   }
 
   getNewPeriod(period) {
