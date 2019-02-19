@@ -1,4 +1,4 @@
-<div class="modal">
+<div class="modal" *ngIf="!isSelectSpeakers">
   <nav class="title bg-primary navbar-fixed-top">
     <h4>{{ mode }} Session</h4>
     <button class="btn-cancel" (click)="onExit()">Cancel</button>
@@ -54,3 +54,9 @@
     </div>
   </div>
 </div>
+
+<app-select-speaker *ngIf="isSelectSpeakers"
+                    (submitSpeakers)="submitSpeakers($event)"
+                    (exitSelection)="isSelectSpeakers = false"
+                    [ids]="session.speakerIDs.slice()">
+</app-select-speaker>

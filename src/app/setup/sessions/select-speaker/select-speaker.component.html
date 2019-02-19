@@ -1,0 +1,24 @@
+<div class="select-modal">
+  <div class="title bg-primary">
+    <h4>Select Speakers</h4>
+    <button class="btn-cancel" (click)="onExit()">Cancel</button>
+    <button class="btn-submit" (click)="onSubmit()">Submit</button>
+  </div>
+
+  <div class="container-fluid body">
+    <div class="speakers">
+      <p>SPEAKERS</p>
+      <button class="checkAll" (click)="onCheckAction(true)">Check All</button>
+      <button (click)="onCheckAction(false)">Clear All</button>
+    </div>
+    <div class="speaker-list">
+      <ul *ngFor="let speaker of speakers; let i = index">
+        <li>
+          <p>{{ speaker.name }} {{ speaker.phone }}</p>
+          <input type="checkbox" id="myCheck"
+                (click)="onClick(i)" [checked]="speaker.isChecked">
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
