@@ -10,6 +10,7 @@ import { SetupPeriodComponent } from "./setup-period/setup-period.component";
 import { SessionEditComponent } from './sessions/session-edit/session-edit.component';
 import { ConfirmComponent } from "./confirm/confirm.component";
 import { SelectSpeakerComponent } from './sessions/select-speaker/select-speaker.component';
+import { SelectTrackComponent } from './sessions/select-track/select-track.component';
 
 @NgModule({
   imports: [
@@ -25,7 +26,8 @@ import { SelectSpeakerComponent } from './sessions/select-speaker/select-speaker
     SetupPeriodComponent,
     SessionEditComponent,
     ConfirmComponent,
-    SelectSpeakerComponent
+    SelectSpeakerComponent,
+    SelectTrackComponent
   ]
 })
 export class SetupModule {}

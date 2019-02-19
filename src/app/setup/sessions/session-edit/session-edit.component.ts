@@ -18,6 +18,7 @@ export class SessionEditComponent implements OnInit {
   navbar: any;
   errorMessage = '';
   isSelectSpeakers = false;
+  isSelectTracks = false;
 
   session: SESSION = {
     name: '',
@@ -77,13 +78,14 @@ export class SessionEditComponent implements OnInit {
     }
   }
 
-  selectSpeakers() {
-    this.isSelectSpeakers = true;
-  }
-
   submitSpeakers(data) {
     this.session.speakerIDs = data.slice();
     this.isSelectSpeakers = false;
+  }
+
+  submitTracks(data) {
+    this.session.tracks = data.slice();
+    this.isSelectTracks = false;
   }
 
   onSubmit() {

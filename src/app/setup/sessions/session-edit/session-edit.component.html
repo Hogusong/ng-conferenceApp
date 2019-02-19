@@ -1,4 +1,4 @@
-<div class="modal" *ngIf="!isSelectSpeakers">
+<div class="modal" *ngIf="!isSelectSpeakers || !isSelectTracks">
   <nav class="title bg-primary navbar-fixed-top">
     <h4>{{ mode }} Session</h4>
     <button class="btn-cancel" (click)="onExit()">Cancel</button>
@@ -31,7 +31,7 @@
     <div class="speakers">
       <div class="subtitle">
         <p>Speaker</p>
-        <i class="fas fa-plus" (click)="selectSpeakers()"></i>
+        <i class="fas fa-plus" (click)="isSelectSpeakers=true"></i>
       </div>
       <ul *ngFor="let s of speakers">
         <li *ngIf="isInSession(s.id, 'speaker')">
@@ -43,7 +43,7 @@
     <div class="tracks">
       <div class="subtitle">
         <p>Tracks</p>
-        <i class="fas fa-plus" (click)="selectTracks()"></i>
+        <i class="fas fa-plus" (click)="isSelectTracks=true"></i>
       </div>
       <ul *ngFor="let t of tracks">
         <li *ngIf="isInSession(t.name, 'tracks')">
@@ -60,3 +60,9 @@
                     (exitSelection)="isSelectSpeakers = false"
                     [ids]="session.speakerIDs.slice()">
 </app-select-speaker>
+
+<app-select-track *ngIf="isSelectTracks"
+                    (submitTracks)="submitTracks($event)"
+                    (exitSelection)="isSelectTracks = false"
+                    [tracksInSession]="session.tracks.slice()">
+</app-select-track>
