@@ -1,0 +1,50 @@
+<nav class="navbar navbar-inverse fixed-top">
+  <div class="container-fluid bg-primary">
+    <h4 class="dropdown"><span class="dropdown-toggle glyphicon glyphicon-menu-hamburger"
+        data-toggle="dropdown"></span> &nbsp;Speakers
+      <ul class="dropdown-menu">
+        <app-setup-menu></app-setup-menu>
+      </ul>
+    </h4>
+    <p><a (click)="onEditSpeaker('New')">Add New</a></p>
+  </div>
+
+  <div class="row search">
+    <div class="col-xs-1">
+      <span class="glyphicon glyphicon-search" id="search"></span>
+    </div>
+    <div class="col-xs-10">
+      <input type="text" class="form-control" name="queryText"
+              [(ngModel)]="queryText" placeholder="search">
+    </div>
+    <div class="col-xs-1">
+      <span class="glyphicon glyphicon-remove" id="remove"
+            (click)="queryText=''" ></span>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid" id="body" *ngIf="speakers"
+      [hidden]="speakers.length === 0">
+  <ul *ngFor="let speaker of speakers">
+    <li *ngIf="speaker.name.toLowerCase().includes(queryText.toLowerCase())">
+      <img id="avatar" [src]="speaker.profilePic" alt="Avatar">
+      <p id="name" (click)="onEditSpeaker(speaker.id)">
+        {{ speaker.name }} ({{ speaker.phone }})
+      </p>
+      <p id="trash" (click)="onRemoveSpeaker(speaker)">
+        <i class="fas fa-trash"></i>
+      </p>
+    </li>
+  </ul>
+</div>
+
+<app-confirm *ngIf="activateConfirm"
+            (confirm)="getConfirm($event)"
+            [confirmMessage]="confirmMessage"
+            [confirmTitle]="confirmTitle">
+</app-confirm>
+
+<app-setup-tabs *ngIf="!activateConfirm" [selected]="'speakers'"></app-setup-tabs>
+
+<router-outlet></router-outlet>

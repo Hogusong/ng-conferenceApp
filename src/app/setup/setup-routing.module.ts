@@ -3,6 +3,7 @@ import { Routes, RouterModule } from "@angular/router";
 import { SetupComponent } from "./setup.component";
 import { SessionsComponent } from "./sessions/sessions.component";
 import { SessionEditComponent } from "./sessions/session-edit/session-edit.component";
+import { SpeakersComponent } from "./speakers/speakers.component";
 
 const setupRoutes: Routes = [
   { path: '', component: SetupComponent,
@@ -11,7 +12,8 @@ const setupRoutes: Routes = [
         children: [
           { path: 'edit/:id', component: SessionEditComponent }
         ]
-      }
+      },
+      { path: 'speakers', component: SpeakersComponent }
     ]
   }
 ]

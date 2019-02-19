@@ -36,4 +36,16 @@ export class SpeakerService {
         });
       }));
   }
+
+  addSpeaker(speaker: SPEAKER) {
+    console.log('added', speaker.name);
+  }
+
+  updateSpeaker(speaker: SPEAKER) {
+    console.log('updated', speaker.name);
+  }
+
+  removeSpeaker(speaker: SPEAKER) {
+    console.log('removed', speaker.name);
+  }
 }
