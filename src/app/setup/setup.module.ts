@@ -12,6 +12,10 @@ import { ConfirmComponent } from "./confirm/confirm.component";
 import { SelectSpeakerComponent } from './sessions/select-speaker/select-speaker.component';
 import { SelectTrackComponent } from './sessions/select-track/select-track.component';
 import { SpeakersComponent } from './speakers/speakers.component';
+import { SpeakerEditComponent } from './speakers/speaker-edit/speaker-edit.component';
+import { ImageUploadComponent } from './speakers/image-upload/image-upload.component';
+import { FilesizePipe } from './filesize.pipe';
+import { DropzoneDirective } from "./dropzone.directive";
 
 @NgModule({
   imports: [
@@ -29,7 +33,11 @@ import { SpeakersComponent } from './speakers/speakers.component';
     ConfirmComponent,
     SelectSpeakerComponent,
     SelectTrackComponent,
-    SpeakersComponent
+    SpeakersComponent,
+    SpeakerEditComponent,
+    ImageUploadComponent,
+    FilesizePipe,
+    DropzoneDirective
   ]
 })
 export class SetupModule {}

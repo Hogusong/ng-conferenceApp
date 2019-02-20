@@ -29,7 +29,7 @@ export class SpeakersComponent implements OnInit {
   }
 
   onEditSpeaker(type: string) {
-    console.log(type);
+    this.router.navigate(['edit', type], { relativeTo: this.activatedRoute });
   }
 
   onRemoveSpeaker(speaker: SPEAKER) {

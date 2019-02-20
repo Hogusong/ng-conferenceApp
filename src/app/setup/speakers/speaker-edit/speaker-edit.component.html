@@ -1,0 +1,47 @@
+<div class="modal" *ngIf="!uploadImage">
+  <nav class="title bg-primary navbar-fixed-top">
+    <h4>{{ mode }} Speaker</h4>
+    <button class="btn-cancel" (click)="onExit()">Cancel</button>
+    <button class="btn-submit" type="submit" (click)="onSubmit()">Submit</button>
+  </nav>
+
+  <div class="body">
+    <div class="avatar" *ngIf="mode==='Edit'">
+      <p (click)="onUploadImage()"><img [src]="speaker.profilePic" alt="Click here to upload!"></p>
+    </div>      
+    <div class="row input-item">
+      <label class="col-xs-3">Name</label>
+      <input class="col-xs-9" type="text" [(ngModel)]="speaker.name">
+    </div>
+    <div class="row input-item">
+      <label class="col-xs-3">Email</label>
+      <input class="col-xs-9" type="email" [(ngModel)]="speaker.email">
+    </div>
+    <div class="row input-item">
+      <label class="col-xs-3">Phone</label>
+      <input class="col-xs-9" type="text" [(ngModel)]="speaker.phone">
+    </div>
+    <div class="row input-item">
+      <label class="col-xs-3">Location</label>
+      <input class="col-xs-9" type="text" [(ngModel)]="speaker.location">
+    </div>
+    <div class="row input-item">
+      <label class="col-xs-3">twitter</label>
+      <input class="col-xs-9" type="text" [(ngModel)]="speaker.twitter">
+    </div>
+    <div class="row input-item">
+      <label class="col-xs-3">githup</label>
+      <input class="col-xs-9" type="text" [(ngModel)]="speaker.githup">
+    </div>
+    <div class="row input-item">
+      <label class="col-xs-3">instagram</label>
+      <input class="col-xs-9" type="text" [(ngModel)]="speaker.instagram">
+    </div>      
+  </div>
+</div>
+
+<app-image-upload *ngIf="uploadImage"
+              [name]="speaker.name"
+              (exit)="uploadImage=false"
+              (updateImage)="updatePicture($event)">
+</app-image-upload>

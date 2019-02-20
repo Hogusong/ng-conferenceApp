@@ -1,0 +1,129 @@
+.modal {
+  z-index: 3;
+  display: block;
+  background: white;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: auto;
+  padding-bottom: 60px;
+}
+
+.title {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr;
+  width: 100%;
+  padding: 0;
+  padding-bottom: 1px;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+h4 {
+  margin-left: 20px;
+  padding: 0;
+  color: orange;
+}
+
+button {
+  text-align: right;
+}
+
+.btn-submit {
+  margin-right: 15px;
+}
+
+button:hover {
+  color: greenyellow;
+}
+
+/* Input */
+.body {
+  padding: 70px 0;
+}
+
+.avatar {
+  text-align: center;
+}
+
+.avatar p img {
+  height: 160px;
+  border-radius: 50%;
+}
+
+label {
+  font-size: 16px;
+  font-weight: 400;
+  color: red;
+}
+
+.input-item {
+  padding: 10px 0;
+  margin: 0 15px;
+  border-bottom: 1px solid lightgray;
+}
+
+input:focus {
+  outline: none;
+}
+
+.description {
+  padding: 0 5px 20px 5px;
+}
+
+.description label {
+  display: inline-block;
+  margin: 10px 25px;
+}
+
+textarea {
+  height: 200px;
+  width: 90%;
+  margin-left: 20px;
+  padding: 5px;
+  border: 1px solid lightgray;
+}
+
+.subtitle {
+  display: inline-block;
+  width: 90%;
+  background: skyblue;
+  color: white;
+  padding: 10px 0 0 10px;
+  margin: 0 20px 10px 20px;
+}
+
+.subtitle p {
+  float: left;
+}
+
+ul {
+  list-style: none;
+  padding: 0 25px;
+}
+
+li {
+  display: inline-block;
+  margin: 0;
+  width: 100%;
+  border-bottom: 1px solid lightgray;
+}
+
+li p {
+  float: left;
+  padding-left: 5px;
+}
+
+.subtitle i, li i {
+  float: right;
+  margin-top: 6px;
+  margin-right: 15px;
+  font-size: 14px;
+}
+
+li i {
+  color: red;
+}

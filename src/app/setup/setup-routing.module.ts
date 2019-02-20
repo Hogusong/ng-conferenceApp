@@ -4,6 +4,7 @@ import { SetupComponent } from "./setup.component";
 import { SessionsComponent } from "./sessions/sessions.component";
 import { SessionEditComponent } from "./sessions/session-edit/session-edit.component";
 import { SpeakersComponent } from "./speakers/speakers.component";
+import { SpeakerEditComponent } from "./speakers/speaker-edit/speaker-edit.component";
 
 const setupRoutes: Routes = [
   { path: '', component: SetupComponent,
@@ -13,7 +14,11 @@ const setupRoutes: Routes = [
           { path: 'edit/:id', component: SessionEditComponent }
         ]
       },
-      { path: 'speakers', component: SpeakersComponent }
+      { path: 'speakers', component: SpeakersComponent,
+        children: [
+          { path: 'edit/:id', component: SpeakerEditComponent }
+        ]
+      }
     ]
   }
 ]

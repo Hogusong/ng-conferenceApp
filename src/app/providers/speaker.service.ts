@@ -37,15 +37,42 @@ export class SpeakerService {
       }));
   }
 
+  getSpeakerById(id: string): Promise<any> {
+    return this.speakersCollection.doc(id).ref.get()
+      .then(doc => {
+        const speaker = doc.data() as SPEAKER ;
+        speaker.id = id;
+        const profilePath = speaker.profilePic;
+        if (speaker.profilePic) {
+          this.fireStorage.ref(speaker.profilePic).getDownloadURL().subscribe(url => {
+            speaker.profilePic = url ? url : '';
+          });
+        }
+        return { speaker: speaker, path: profilePath };
+      });
+  }
+
   addSpeaker(speaker: SPEAKER) {
-    console.log('added', speaker.name);
+    return this.speakersCollection.add(speaker)
+      .then(docRef => docRef.id);
   }
 
   updateSpeaker(speaker: SPEAKER) {
-    console.log('updated', speaker.name);
+    const id = speaker.id;
+    delete(speaker.id);
+    this.speakerDoc = this.db.doc(`speakers/${id}`);
+    this.speakerDoc.update(speaker);
+    speaker.id = id;
   }
 
   removeSpeaker(speaker: SPEAKER) {
-    console.log('removed', speaker.name);
+    this.speakerDoc = this.db.doc(`sessions/${speaker.id}`);
+    this.speakerDoc.delete();
+  }
+
+  deleteUrl(oldUrl) {
+    if (oldUrl) {
+      this.fireStorage.storage.refFromURL(oldUrl).delete();
+    }
   }
 }
