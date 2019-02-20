@@ -16,6 +16,8 @@ import { SpeakerEditComponent } from './speakers/speaker-edit/speaker-edit.compo
 import { ImageUploadComponent } from './speakers/image-upload/image-upload.component';
 import { FilesizePipe } from './filesize.pipe';
 import { DropzoneDirective } from "./dropzone.directive";
+import { TracksComponent } from './tracks/tracks.component';
+import { TrackEditComponent } from './tracks/track-edit/track-edit.component';
 
 @NgModule({
   imports: [
@@ -37,7 +39,9 @@ import { DropzoneDirective } from "./dropzone.directive";
     SpeakerEditComponent,
     ImageUploadComponent,
     FilesizePipe,
-    DropzoneDirective
+    DropzoneDirective,
+    TracksComponent,
+    TrackEditComponent
   ]
 })
 export class SetupModule {}
