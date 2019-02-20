@@ -2,8 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { UserService } from 'src/app/providers/user.service';
-import { USER } from 'src/app/models';
+import { USER, TRACK } from 'src/app/models';
 import { GeneralService } from 'src/app/providers/general.service';
+import { TrackService } from 'src/app/providers/track.service';
 
 @Component({
   selector: 'app-signup',
@@ -14,6 +15,7 @@ export class SignupComponent implements OnInit {
 
   @ViewChild('SignupForm') SignupForm: NgForm;
   users: USER[];
+  trackFilter: { name: string, isChecked: boolean }[] = [];
   pattern = "[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?";
   username = '';
   email = '';
@@ -23,12 +25,16 @@ export class SignupComponent implements OnInit {
 
   constructor(private userService: UserService,
               private genService: GeneralService,
+              private trackService: TrackService,
               private router: Router) {}
 
   ngOnInit() {
-    this.userService.getUsers().subscribe(res => {
-      this.users = res;
-    })
+    this.userService.getUsers().subscribe(res => this.users = res);
+    this.trackService.getTracks().subscribe(tracks => {
+      tracks.forEach(track => {
+        this.trackFilter.push({ name: track.name, isChecked: true });
+      })
+    });
   }
 
   suggestUserInfo() {
@@ -90,7 +96,7 @@ export class SignupComponent implements OnInit {
       email: this.email,
       password: this.password,
       favorites: [],
-      trackFilter: [],
+      trackFilter: this.trackFilter,
       seenTutorial: false
     };
     this.SignupForm.reset();
