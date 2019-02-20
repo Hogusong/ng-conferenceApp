@@ -8,7 +8,7 @@ import { FormsModule } from "@angular/forms";
 import { SetupMenuComponent } from "./setup-menu/setup-menu.component";
 import { SetupPeriodComponent } from "./setup-period/setup-period.component";
 import { SessionEditComponent } from './sessions/session-edit/session-edit.component';
-import { ConfirmComponent } from "./confirm/confirm.component";
+import { ConfirmComponent } from "./shared/confirm/confirm.component";
 import { SelectSpeakerComponent } from './sessions/select-speaker/select-speaker.component';
 import { SelectTrackComponent } from './sessions/select-track/select-track.component';
 import { SpeakersComponent } from './speakers/speakers.component';
@@ -18,6 +18,7 @@ import { FilesizePipe } from './filesize.pipe';
 import { DropzoneDirective } from "./dropzone.directive";
 import { TracksComponent } from './tracks/tracks.component';
 import { TrackEditComponent } from './tracks/track-edit/track-edit.component';
+import { ChangeInfoComponent } from './shared/change-info/change-info.component';
 
 @NgModule({
   imports: [
@@ -41,7 +42,8 @@ import { TrackEditComponent } from './tracks/track-edit/track-edit.component';
     FilesizePipe,
     DropzoneDirective,
     TracksComponent,
-    TrackEditComponent
+    TrackEditComponent,
+    ChangeInfoComponent
   ]
 })
 export class SetupModule {}

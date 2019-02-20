@@ -1,0 +1,18 @@
+<div class="modal-change">
+  <div class="modal-content">
+    <h3 class="header">{{ title }}</h3>
+    <div class="update">
+      <p id="description">{{ description }}</p>
+      <p id="currentName" *ngIf="!isNew">{{ currentName }}</p>
+      <input [(ngModel)]="newInfo" placeholder="Enter here ...">
+    </div>
+    <div class="buttons">
+      <button class="btn btn-primary" type="button"
+              (click)="submitResult.emit(false)">Cancel</button>
+      <button class="btn btn-primary" type="submit"
+              (click)="submitResult.emit(newInfo)">Submit</button>
+    </div>
+    <span *ngIf="errMessage">{{ errMessage }}</span>
+  </div>
+</div>
+  

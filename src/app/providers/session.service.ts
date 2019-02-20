@@ -78,7 +78,6 @@ export class SessionService {
     this.getAllSessions().subscribe(res => data = res);
     setTimeout(() => {
       const sessions = data.slice();
-      console.log(sessions);
       sessions.forEach(session => {
         const index = session.speakerIDs.findIndex(id => id === key);
         if (index > -1) {
@@ -86,7 +85,37 @@ export class SessionService {
           this.updateSession(session);
         }
       })
-    }, 500);
+    }, 1000);
+  }
+
+  updateTrackInSession(oldName, newName) {
+    let data: SESSION[] = null;
+    this.getAllSessions().subscribe(res => data = res);
+    setTimeout(() => {
+      const sessions = data.slice();
+      sessions.forEach((session:SESSION) => {
+        const index = session.tracks.findIndex(name => name === oldName);
+        if (index > -1) {
+          session.tracks[index] = newName;
+          this.updateSession(session);
+        }
+      });
+    }, 1000);
+  }
+
+  removeTrackInSession(key) {
+    let data: SESSION[] = null;
+    this.getAllSessions().subscribe(res => data = res);
+    setTimeout(() => {
+      const sessions = data.slice();
+      sessions.forEach((session:SESSION) => {
+        const index = session.tracks.findIndex(name => name === key);
+        if (index > -1) {
+          session.tracks.splice(index, 1);
+          this.updateSession(session);
+        }
+      });
+    }, 1000);
   }
 
   filterSession(session: any, options: any) {

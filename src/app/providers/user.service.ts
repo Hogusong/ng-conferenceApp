@@ -69,4 +69,46 @@ export class UserService {
       this.fireStorage.storage.refFromURL(oldUrl).delete();
     }
   }
+
+  addTrackInUser(name: string) {
+    let data: USER[] = null;
+    this.getUsers().subscribe(res => data = res);
+    setTimeout(() => {
+      const users = data.slice();
+      users.forEach((user:USER) => {
+        user.trackFilter.push({ name: name, isChecked: false });
+        this.updateUser(user);
+      });
+    }, 1000);
+  }
+
+  updateTrackInUser(oldName, newName) {
+    let data: USER[] = null;
+    this.getUsers().subscribe(res => data = res);
+    setTimeout(() => {
+      const users = data.slice();
+      users.forEach((user:USER) => {
+        const index = user.trackFilter.findIndex(track => track.name === oldName);
+        if (index > -1) {
+          user.trackFilter[index].name = newName;
+          this.updateUser(user);
+        }
+      });
+    }, 1000);
+  }
+
+  removeTrackInUser(name) {
+    let data: USER[] = null;
+    this.getUsers().subscribe(res => data = res);
+    setTimeout(() => {
+      const users = data.slice();
+      users.forEach((user:USER) => {
+        const index = user.trackFilter.findIndex(track => track.name === name);
+        if (index > -1) {
+          user.trackFilter.splice(index, 1);
+          this.updateUser(user);
+        }
+      });
+    }, 1000);
+  }
 }
