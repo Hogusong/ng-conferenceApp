@@ -63,6 +63,7 @@ export class TracksComponent implements OnInit {
         this.selectedTrack.name = name;
         this.trackService.updateTrack(this.selectedTrack);
         this.userService.updateTrackInUser(oldName, name);
+        this.sessionService.updateTrackInSession(oldName, name);
         this.onChange = false;
       }
     } else {
