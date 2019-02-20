@@ -66,7 +66,7 @@ export class SpeakerService {
   }
 
   removeSpeaker(speaker: SPEAKER) {
-    this.speakerDoc = this.db.doc(`sessions/${speaker.id}`);
+    this.speakerDoc = this.db.doc(`speakers/${speaker.id}`);
     this.speakerDoc.delete();
   }
 

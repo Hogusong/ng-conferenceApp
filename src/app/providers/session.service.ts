@@ -32,6 +32,20 @@ export class SessionService {
     return sessions;
   }
 
+  getAllSessions() {
+    this.sessionsCollection = this.db.collection(
+      'sessions', ref => ref.orderBy('date', 'asc'));
+    const sessions = this.sessionsCollection.snapshotChanges()
+      .pipe(map(response => {
+        return response.map(action => {
+          const data = action.payload.doc.data() as SESSION;
+          data.id = action.payload.doc.id;
+          return data;
+        });
+      }));
+    return sessions;
+  }
+
   getSessionById(id: string): Promise<any> {
     return this.sessionsCollection.doc(id).ref.get()
       .then(doc => {
@@ -57,6 +71,22 @@ export class SessionService {
   removeSession(session: SESSION) {
     this.sessionDoc = this.db.doc(`sessions/${session.id}`);
     this.sessionDoc.delete();
+  }
+
+  removeSpeakerInSession(key: string) {
+    let data = null;
+    this.getAllSessions().subscribe(res => data = res);
+    setTimeout(() => {
+      const sessions = data.slice();
+      console.log(sessions);
+      sessions.forEach(session => {
+        const index = session.speakerIDs.findIndex(id => id === key);
+        if (index > -1) {
+          session.speakerIDs.splice(index, 1);
+          this.updateSession(session);
+        }
+      })
+    }, 500);
   }
 
   filterSession(session: any, options: any) {

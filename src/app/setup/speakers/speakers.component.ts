@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SPEAKER } from 'src/app/models';
 import { SpeakerService } from 'src/app/providers/speaker.service';
-import { GeneralService } from 'src/app/providers/general.service';
+import { SessionService } from 'src/app/providers/session.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -20,7 +20,7 @@ export class SpeakersComponent implements OnInit {
   confirmTitle = '';
 
   constructor(private speakerService: SpeakerService,
-              private genService: GeneralService,
+              private sessionService: SessionService,
               private activatedRoute: ActivatedRoute,
               private router: Router) { }
 
@@ -42,6 +42,7 @@ export class SpeakersComponent implements OnInit {
   getConfirm(result) {
     if (result) {
       this.speakerService.removeSpeaker(this.selectedSpeaker);
+      this.sessionService.removeSpeakerInSession(this.selectedSpeaker.id);
     }
     this.activateConfirm = false;
     this.selectedSpeaker = null;
