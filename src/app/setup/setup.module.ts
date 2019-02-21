@@ -21,6 +21,7 @@ import { TrackEditComponent } from './tracks/track-edit/track-edit.component';
 import { ChangeInfoComponent } from './shared/change-info/change-info.component';
 import { PartOfDayComponent } from './part-of-day/part-of-day.component';
 import { AmpmPipe } from './shared/ampm.pipe';
+import { LocationComponent } from './location/location.component';
 
 @NgModule({
   imports: [
@@ -47,7 +48,8 @@ import { AmpmPipe } from './shared/ampm.pipe';
     TrackEditComponent,
     ChangeInfoComponent,
     PartOfDayComponent,
-    AmpmPipe
+    AmpmPipe,
+    LocationComponent
   ]
 })
 export class SetupModule {}

@@ -1,0 +1,92 @@
+/* Navigartin bar */
+.navbar {
+  width: 100%;;
+  background-color: white;
+  border: none;
+  border-bottom: 1px solid lightgray;
+  box-shadow: 2px 3px 0px 0px rgba(114, 114, 116, 0.2);
+}
+
+.fixed-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.dropdown-menu {  width: 200px;  }
+
+.container-fluid h4 {
+  float: left;
+  color: orange;
+}
+
+h4 span {
+  color: white;
+}
+
+.container-fluid p {
+  float: right;
+  margin-top: 10px;
+}
+
+.container-fluid a {
+  color: white;
+}
+
+/* Search bar */
+.search span {
+  font-size: 16px;
+  padding: 0;
+  margin: 0;
+}
+
+#search {
+  margin: 8px 0 0px 10px;
+}
+
+#remove {
+  margin: 8px 0 0px -20px;
+}
+
+.search {
+  margin: 3px 0 3px 0;
+}
+
+.search input {
+  box-shadow: 3px 3px 0px 0px rgba(114, 114, 116, 0.2);
+  margin-bottom: 3px;
+}
+
+/* Body */
+#body {
+  margin-top: 95px;
+  padding-bottom: 150px;
+}
+
+#body ul {
+  padding: 0;
+  margin: 0;
+  margin-left: 10px;
+  list-style: none;
+}
+
+#body ul li {
+  display: inline-block;
+  padding-right: 10px;
+  width: 100%;
+  border-bottom: 1px solid lightgray;
+}
+
+#name {
+  float: left;
+  padding-top: 0;
+  margin-left: 10px;
+}
+
+#trash {
+  float: right;
+}
+
+#body i {
+  color: red;
+}

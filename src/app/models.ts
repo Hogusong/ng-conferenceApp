@@ -81,3 +81,16 @@ export interface PERIOD {
   dateFrom: string;        //  yyyy-mm-dd
   dateTo: string;          //  yyyy-mm-dd
 }
+
+export interface LOCATION {
+  id?: string;
+  name: string;
+  streetNo: string;
+  streetName: string;
+  suiteNo?: string;
+  city: string;
+  state: string;
+  zipCode?: string;
+  lat?: number;
+  lng?: number;
+}

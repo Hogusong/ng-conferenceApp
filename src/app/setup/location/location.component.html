@@ -1,0 +1,50 @@
+<nav class="navbar navbar-inverse fixed-top">
+    <div class="container-fluid bg-primary">
+      <h4 class="dropdown"><span class="dropdown-toggle glyphicon glyphicon-menu-hamburger"
+          data-toggle="dropdown"></span> &nbsp;Location
+        <ul class="dropdown-menu">
+          <app-setup-menu></app-setup-menu>
+        </ul>
+      </h4>
+      <p><a (click)="onEditLocation('New')">Add New</a></p>
+    </div>
+  
+    <div class="row search">
+      <div class="col-xs-1">
+        <span class="glyphicon glyphicon-search" id="search"></span>
+      </div>
+      <div class="col-xs-10">
+        <input type="text" class="form-control" name="queryText"
+                [(ngModel)]="queryText" placeholder="search">
+      </div>
+      <div class="col-xs-1">
+        <span class="glyphicon glyphicon-remove" id="remove"
+              (click)="queryText=''" ></span>
+      </div>
+    </div>
+  </nav>
+  
+  <div class="container-fluid" id="body" *ngIf="locations"
+        [hidden]="locations.length === 0">
+    <ul *ngFor="let location of locations">
+      <li *ngIf="location.name.toLowerCase().includes(queryText.toLowerCase())">
+        <p id="name" (click)="onEditLocation(location.id)">
+          {{ location.name }} ({{ location.city }})
+        </p>
+        <p id="trash" (click)="onRemoveLocation(location)">
+          <i class="fas fa-trash"></i>
+        </p>
+      </li>
+    </ul>
+  </div>
+  
+  <app-confirm *ngIf="activateConfirm"
+              (confirm)="getConfirm($event)"
+              [confirmMessage]="confirmMessage"
+              [confirmTitle]="confirmTitle">
+  </app-confirm>
+  
+  <app-setup-tabs *ngIf="!activateConfirm" [selected]="'location'"></app-setup-tabs>
+  
+  <router-outlet></router-outlet>
+  
