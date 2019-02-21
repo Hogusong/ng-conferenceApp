@@ -16,11 +16,11 @@
   background: white;
   position: relative;
   width: 300px;
+  text-align: center;
   outline: 0;
 }
 
 .header {
-  text-align: center;
   padding-bottom: 20px;
   border-bottom: 1px solid lightgray;
 }
@@ -30,22 +30,11 @@
   padding: 0;
   padding-bottom: 20px;
   border-bottom: 1px solid lightgray;
-  text-align: center;
 }
 
-.buttons {
-  display: flex;
-  justify-content: center;
-}
-
-.btn {
-  margin: 20px 11px;
-  width: 42%;
-}
-
-#currentName {
-  color: red;
-}
+.buttons {  display: flex;  }
+.btn {  margin: 20px 11px;  width: 42%;  }
+#currentName {  color: red;  }
 
 input {
   border: 1px solid lightgray;
@@ -53,3 +42,5 @@ input {
   width: 70%;
   outline: none;
 }
+
+span {  color: red;  }

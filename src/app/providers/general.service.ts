@@ -36,6 +36,23 @@ export class GeneralService {
       }));
   }
 
+  addPartOfDay(pod: PARTOFDAY) {
+    return this.partsOfDayCollection.add(pod);
+  }
+
+  updatePartOfDay(pod: PARTOFDAY) {
+    const id = pod.id;
+    delete(pod.id);
+    this.partOfDayDoc = this.db.doc(`partOfDay/${id}`);
+    this.partOfDayDoc.update(pod);
+    pod.id = id;
+  }
+
+  removePartOfDay(pod: PARTOFDAY) {
+    this.partOfDayDoc = this.db.doc(`partOfDay/${pod.id}`)
+    this.partOfDayDoc.delete();
+  }
+
   setUser(user: USER): Promise<any> {
     const promise = new Promise((res, rej) => {
       localStorage.setItem('user', JSON.stringify(user));
@@ -127,5 +144,12 @@ export class GeneralService {
 
   get2DigitString(num: number): string {
     return (num < 10) ? '0' + num : '' + num ;   
+  }
+
+  addMinute(time: string): string {
+    const [h, m] = time.split(':');
+    const hour = this.get2DigitString((m === '59') ? +h + 1 : +h);
+    const min = this.get2DigitString((m === '59') ? 0 : +m + 1);
+    return (hour === '24') ? null : hour + ':' + min ;
   }
 }

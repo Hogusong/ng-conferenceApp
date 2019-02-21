@@ -8,7 +8,6 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class ChangeInfoComponent {
 
   @Output() submitResult = new EventEmitter<any>();
-  @Output() exit = new EventEmitter();
   
   @Input() title: string;
   @Input() description: string;

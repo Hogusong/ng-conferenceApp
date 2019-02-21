@@ -7,6 +7,7 @@ import { SpeakersComponent } from "./speakers/speakers.component";
 import { SpeakerEditComponent } from "./speakers/speaker-edit/speaker-edit.component";
 import { TracksComponent } from "./tracks/tracks.component";
 import { TrackEditComponent } from "./tracks/track-edit/track-edit.component";
+import { PartOfDayComponent } from "./part-of-day/part-of-day.component";
 
 const setupRoutes: Routes = [
   { path: '', component: SetupComponent,
@@ -25,7 +26,8 @@ const setupRoutes: Routes = [
         children: [
           { path: 'edit/:id', component: TrackEditComponent }
         ]
-      }
+      },
+      { path: 'partOfDay', component: PartOfDayComponent }
     ]
   }
 ]

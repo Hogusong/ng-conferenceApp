@@ -1,0 +1,44 @@
+.navbar {  width: 100%;;  background-color: white;  border: none;  }
+.fixed-top {  position: fixed;  top: 0;  left: 0;  }
+.dropdown-menu {  width: 200px;  }
+.header h4 {  float: left;  color: orange;  }
+h4 span, .header a {  color: white;  }
+.header p {  float: right;  margin-top: 10px;  }
+
+/* Body */
+#body {  margin-top: 70px;  }
+
+.title, .detail {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
+}
+
+.title {
+  border-bottom: 2px solid gray;
+  margin-bottom: 15px;
+}
+
+.title p {  text-align: left;   padding-left: 0;  }
+.title p:nth-child(1) {  margin-left: 5px;  }
+.title p:nth-child(5) {  text-align: center;  }
+.title p:nth-child(5) {  margin-left: -5px;  }
+.detail p:nth-child(1) {  text-align: center;  }
+
+button {
+  margin-top: -10px;
+  margin-left: 5px;
+  width: 50px;
+  color: skyblue;
+}
+
+.container {  padding-bottom: 120px;  }
+.new {  margin-top: 15px;  background: lightgray;  text-align: center;  }
+.input-item {  margin-left: 7px;  }
+.new h4 {  color: orange;  padding: 15px 0;  }
+span {  padding-bottom: 10px;  color: red;  }
+.new input {  background: lightgray;   outline: none;  }
+.buttons {  display: flex;  justify-content: center;  }
+.btn {  margin: 5px 10px 20px 10px;  width: 42%;  }
+.newDetail {  margin-top: 15px;  margin-left: 10px;  }
+.new-detail p:nth-child(2) {  padding: 0 5px;  }
+.new-detail p:nth-child(4) {  margin-left: 5px;  }

@@ -1,0 +1,83 @@
+<nav class="navbar navbar-inverse fixed-top">
+  <div class="container-fluid bg-primary header">
+    <h4 class="dropdown"><span class="dropdown-toggle glyphicon glyphicon-menu-hamburger"
+        data-toggle="dropdown"></span> &nbsp;Part of Day
+      <ul class="dropdown-menu">
+        <app-setup-menu></app-setup-menu>
+      </ul>
+    </h4>
+    <p><a (click)="onMakeNewPOD()" [hidden]="makeNewPOD">Create New Set</a></p>
+  </div>
+</nav>
+
+<div class="container-fluid" id="body" *ngIf="PODs">
+  <div class="title">
+    <p>Index</p>
+    <p>Description</p>
+    <p>From</p>
+    <p>To</p>
+    <p>Action</p>
+  </div>
+  
+  <div class="detail" *ngFor="let pod of PODs">
+    <p>{{ pod.indexKey}}</p>
+    <p>{{ pod.name }}</p>
+    <p>{{ pod.timeFrom | ampm }}</p>
+    <p>{{ pod.timeTo | ampm }} </p>
+    <button (click)="onEditDescription(pod)">EDIT</button>
+  </div>
+</div>
+
+<app-change-info *ngIf="avtivateChange"
+                (submitResult)="submitChangeResult($event)"
+                [title]="'Change Description'"
+                [description]="'Enter new description instead of'"
+                [currentName]="currentName"
+                [isNew]="false"
+                [errMessage]="errMessage">
+</app-change-info>
+
+<app-setup-tabs [selected]="'partOfDay'"></app-setup-tabs>
+
+<div class="container">
+  <div class="new" *ngIf="makeNewPOD">
+    <h4>Create New Set of POD</h4>
+    <div class="row input-item">
+      <label class="col-xs-3">Description &nbsp;</label>
+      <input class="col-xs-8" type="text" [(ngModel)]="description">
+    </div>
+    <div class="row input-item">
+      <label class="col-xs-2">From</label>
+      <label class="col-xs-4">{{ timeFrom | ampm }}</label>
+      <label class="col-xs-1">To &nbsp;&nbsp;</label>
+      <input class="col-xs-4" type="time" [(ngModel)]="timeTo">
+    </div>
+    <div class="buttons">
+      <button class="btn btn-primary" (click)="makeNewPOD=false">Cancel</button>
+      <button class="btn btn-primary" (click)="addToNewPODs()">Add to PODs</button>
+    </div>
+    <span *ngIf="errMessage">{{ errMessage }}</span>
+  </div>
+
+  <div class="newDetail" *ngIf="newPODs.length > 0 && makeNewPOD">
+    <div class="row new-title">
+      <p class="col-xs-2">Index</p>
+      <p class="col-xs-5">Description</p>
+      <p class="col-xs-2">From</p>
+      <p class="col-xs-2">To</p>
+    </div>
+    <div class="new-detail" *ngFor="let pod of newPODs">
+      <p class="col-xs-2">{{ pod.indexKey}}</p>
+      <p class="col-xs-5">{{ pod.name }}</p>
+      <p class="col-xs-2">{{ pod.timeFrom | ampm }}</p>
+      <p class="col-xs-2">{{ pod.timeTo | ampm }} </p>
+    </div>  
+  <div>
+</div>
+
+<app-confirm *ngIf="activateConfirm"
+      (confirm)="getConfirm($event)"
+      [confirmMessage]="'Are you sure to save New Set?'"
+      [confirmTitle]="null">
+</app-confirm>
+

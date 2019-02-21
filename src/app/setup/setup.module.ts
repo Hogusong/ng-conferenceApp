@@ -14,11 +14,13 @@ import { SelectTrackComponent } from './sessions/select-track/select-track.compo
 import { SpeakersComponent } from './speakers/speakers.component';
 import { SpeakerEditComponent } from './speakers/speaker-edit/speaker-edit.component';
 import { ImageUploadComponent } from './speakers/image-upload/image-upload.component';
-import { FilesizePipe } from './filesize.pipe';
-import { DropzoneDirective } from "./dropzone.directive";
+import { FilesizePipe } from './shared/filesize.pipe';
+import { DropzoneDirective } from "./shared/dropzone.directive";
 import { TracksComponent } from './tracks/tracks.component';
 import { TrackEditComponent } from './tracks/track-edit/track-edit.component';
 import { ChangeInfoComponent } from './shared/change-info/change-info.component';
+import { PartOfDayComponent } from './part-of-day/part-of-day.component';
+import { AmpmPipe } from './shared/ampm.pipe';
 
 @NgModule({
   imports: [
@@ -43,7 +45,9 @@ import { ChangeInfoComponent } from './shared/change-info/change-info.component'
     DropzoneDirective,
     TracksComponent,
     TrackEditComponent,
-    ChangeInfoComponent
+    ChangeInfoComponent,
+    PartOfDayComponent,
+    AmpmPipe
   ]
 })
 export class SetupModule {}
