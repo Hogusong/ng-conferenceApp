@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { LOCATION } from 'src/app/models';
 
 @Component({
-  selector: 'app-location',
-  templateUrl: './location.component.html',
-  styleUrls: ['./location.component.css']
+  selector: 'app-locations',
+  templateUrl: './locations.component.html',
+  styleUrls: ['./locations.component.css']
 })
-export class LocationComponent implements OnInit {
+export class LocationsComponent implements OnInit {
 
   locations: LOCATION[] = [{
     name: 'Tween Tower',
