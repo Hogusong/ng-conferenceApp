@@ -1,6 +1,8 @@
 import { NgModule } from "@angular/core";
 import { SetupRoutingModule } from "./setup-routing.module";
 import { CommonModule } from "@angular/common";
+import { AgmCoreModule } from "@agm/core";
+
 import { SetupComponent } from "./setup.component";
 import { SetupTabsComponent } from './setup-tabs/setup-tabs.component';
 import { SessionsComponent } from './sessions/sessions.component';
@@ -23,12 +25,16 @@ import { PartOfDayComponent } from './part-of-day/part-of-day.component';
 import { AmpmPipe } from './shared/ampm.pipe';
 import { LocationsComponent } from './locations/locations.component';
 import { LocationEditComponent } from './locations/location-edit/location-edit.component';
+import { HttpModule } from "@angular/http";
+import { environment } from "src/environments/environment.prod";
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    SetupRoutingModule
+    SetupRoutingModule,
+    AgmCoreModule.forRoot({ apiKey: environment.map_api }),
+    HttpModule
   ],
   declarations: [
     SetupComponent,
@@ -52,6 +58,6 @@ import { LocationEditComponent } from './locations/location-edit/location-edit.c
     AmpmPipe,
     LocationsComponent,
     LocationEditComponent
-  ]
+  ],
 })
 export class SetupModule {}

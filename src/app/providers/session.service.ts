@@ -118,6 +118,10 @@ export class SessionService {
     }, 1000);
   }
 
+  removeLocationInSession(key: string) {
+    console.log('removed location');
+  }
+
   filterSession(session: any, options: any) {
     let matchesQueryText = false;
     if (options.queryText.length > 0) {

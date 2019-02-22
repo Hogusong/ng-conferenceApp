@@ -5,6 +5,7 @@ import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-bro
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireStorageModule } from 'angularfire2/storage';
+// import { AgmCoreModule } from '@agm/core';
 import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
@@ -29,6 +30,7 @@ import { SelectTrackComponent } from './pages/schedule/select-track/select-track
 import { ResetFilterComponent } from './pages/schedule/reset-filter/reset-filter.component';
 import { SpeakerDetailComponent } from './pages/speakers/speaker-detail/speaker-detail.component';
 import { SessionComponent } from './pages/session/session.component';
+import { AgmCoreModule } from '@agm/core';
 
 enableProdMode();
 
@@ -40,9 +42,10 @@ enableProdMode();
     AppRoutingModule,
     ReactiveFormsModule,
     BrowserTransferStateModule,
+    AgmCoreModule.forRoot({ apiKey: environment.map_api }),
     AngularFireModule.initializeApp(environment.firebase, 'conference-app'),
     AngularFirestoreModule,
-    AngularFireStorageModule,
+    AngularFireStorageModule
   ],
   declarations: [
     AppComponent,

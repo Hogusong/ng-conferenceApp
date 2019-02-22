@@ -86,7 +86,7 @@ export interface LOCATION {
   id?: string;
   name: string;
   streetNo: string;
-  streetName: string;
+  street: string;
   suiteNo?: string;
   city: string;
   state: string;

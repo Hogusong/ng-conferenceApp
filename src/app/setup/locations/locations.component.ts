@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+
 import { LOCATION } from 'src/app/models';
+import { LocationService } from 'src/app/providers/location.service';
+import { SessionService } from 'src/app/providers/session.service';
 
 @Component({
   selector: 'app-locations',
@@ -8,19 +12,39 @@ import { LOCATION } from 'src/app/models';
 })
 export class LocationsComponent implements OnInit {
 
-  locations: LOCATION[] = [{
-    name: 'Tween Tower',
-    streetNo: '125',
-    streetName: '3rd AVe.',
-    city: 'New York',
-    state: 'NY',
-    zipCode: '10001'
-  }];
+  locations: LOCATION[] = [];
+  selectedLocation: LOCATION;
   queryText = '';
+  activateConfirm = false;
+  confirmMessage = '';
+  confirmTitle = '';
 
-  constructor() { }
+  constructor(private locationService: LocationService,
+              private sessionService: SessionService,
+              private activatedRoute: ActivatedRoute,
+              private router: Router) {}
 
   ngOnInit() {
+    this.locationService.getLocations().subscribe(res => this.locations = res);
   }
 
+  onEditLocation(type: string) {
+    this.router.navigate(['edit', type], { relativeTo: this.activatedRoute });
+  }
+
+  onRemoveSpeaker(location: LOCATION) {
+    this.activateConfirm = true;
+    this.selectedLocation = location;
+    this.confirmMessage = 'Are you sure to delete this session?';
+    this.confirmTitle = location.name;
+  }
+
+  getConfirm(result) {
+    if (result) {
+      this.locationService.removeLocation(this.selectedLocation);
+      this.sessionService.removeLocationInSession(this.selectedLocation.id);
+    }
+    this.activateConfirm = false;
+    this.selectedLocation = null;
+  }
 }

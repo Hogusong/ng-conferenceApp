@@ -1,3 +1,51 @@
-<p>
-  location-edit works!
-</p>
+<div class="modal" *ngIf="!uploadImage">
+  <nav class="title bg-primary navbar-fixed-top">
+    <h4>{{ mode }} location</h4>
+    <button class="btn-cancel" (click)="onExit()">Cancel</button>
+    <button class="btn-submit" type="submit" (click)="onSubmit()">Submit</button>
+  </nav>
+
+  <div class="body">
+    <div class="container part-1">
+      <label>Location Name</label>
+      <input type="text" [(ngModel)]="location.name">
+    </div>
+    <div class="container part-2">
+      <div id="item-1">
+        <label>Street #</label>
+        <input type="text" [(ngModel)]="location.streetNo">
+      </div>
+      <div id="item-2">
+        <label>Street Name</label>
+        <input type="text" [(ngModel)]="location.street">
+      </div>
+      <div id="item-3">
+        <label>Suite #</label>
+        <input type="text" [(ngModel)]="location.suiteNo">
+      </div>
+    </div>
+    <div class="container part-3">
+      <div id="item-4">
+        <label>City</label>
+        <input type="text" [(ngModel)]="location.city">
+      </div>
+      <div id="item-5">
+        <label>State</label>
+        <input type="text" [(ngModel)]="location.state">
+      </div>
+      <div id="item-6">
+        <label>ZipCode</label>
+        <input type="text" [(ngModel)]="location.zipCode">
+      </div>
+    </div>
+    <div class="buttons">
+      <button class="btn btn-primary" (click)="showMap()">Show Map</button>
+    </div>
+  </div>
+  <div class="map-area">
+  <h3 *ngIf="!found">{{ mapMessage }}</h3>
+  <agm-map *ngIf="found" [latitude]="location.lat" [longitude]="location.lng">
+    <agm-marker [latitude]="location.lat" [longitude]="location.lng"></agm-marker>
+  </agm-map>
+</div>
+</div>

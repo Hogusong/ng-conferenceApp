@@ -9,27 +9,24 @@ import { TracksComponent } from "./tracks/tracks.component";
 import { TrackEditComponent } from "./tracks/track-edit/track-edit.component";
 import { PartOfDayComponent } from "./part-of-day/part-of-day.component";
 import { LocationsComponent } from "./locations/locations.component";
+import { LocationEditComponent } from "./locations/location-edit/location-edit.component";
 
 const setupRoutes: Routes = [
   { path: '', component: SetupComponent,
     children: [
       { path: 'sessions', component: SessionsComponent,
-        children: [
-          { path: 'edit/:id', component: SessionEditComponent }
-        ]
+        children: [{ path: 'edit/:id', component: SessionEditComponent }]
       },
       { path: 'speakers', component: SpeakersComponent,
-        children: [
-          { path: 'edit/:id', component: SpeakerEditComponent }
-        ]
+        children: [{ path: 'edit/:id', component: SpeakerEditComponent }]
       },
       { path: 'tracks', component: TracksComponent,
-        children: [
-          { path: 'edit/:id', component: TrackEditComponent }
-        ]
+        children: [{ path: 'edit/:id', component: TrackEditComponent }]
       },
       { path: 'partOfDay', component: PartOfDayComponent },
-      { path: 'locations', component: LocationsComponent }
+      { path: 'locations', component: LocationsComponent,
+        children: [{ path: 'edit/:id', component: LocationEditComponent }]
+      }
     ]
   }
 ]
