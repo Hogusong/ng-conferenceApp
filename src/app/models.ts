@@ -28,19 +28,6 @@ export interface  SPEAKER {
   sessions?: { id: string, name: string }[];   // session id & name
 }
 
-export interface SESSION {
-  id?: string;
-  name: string;
-  date: string;         // 2018-12-06
-  timeStart: string;    // 15:30 for 3:30pm
-  timeEnd?: string;
-  location?: string;
-  description?: string;
-  speakerIDs: string[];   // speaker's id
-  tracks: string[];     //  name of track
-  hide?: boolean;
-}
-
 export interface PARTOFDAY {
   id?: string;
   indexKey?: number;
@@ -70,7 +57,8 @@ export interface SESSION {
   date: string;         // 2018-12-06
   timeStart: string;    // 15:30 for 3:30pm
   timeEnd?: string;
-  location?: string;
+  room?: string;
+  location?: { id: string, name: string };
   description?: string;
   speakerIDs: string[];   // speaker's id
   tracks: string[];     //  name of track

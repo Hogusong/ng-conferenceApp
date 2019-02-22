@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 
 import { LOCATION } from 'src/app/models';
 import { LocationService } from 'src/app/providers/location.service';
+import { SessionService } from 'src/app/providers/session.service';
 
 @Component({
   selector: 'app-location-edit',
@@ -29,9 +30,9 @@ export class LocationEditComponent implements OnInit {
     lng: null
   }
   apiKey = environment.map_api;
-  // 'AIzaSyCnUnrBtfRrbQngXv6isKK8nnIsOXr9Py8';
 
   constructor(private locationService: LocationService,
+              private sessionService: SessionService,
               private activatedRoute: ActivatedRoute,
               private router: Router,
               private http: Http) { }
@@ -82,6 +83,7 @@ export class LocationEditComponent implements OnInit {
         this.locationService.addLocation(this.location);
       } else {
         this.locationService.updateLocation(this.location);
+        this.sessionService.updateLocationInSession(this.location.id, this.location.name);
       }
     });
     this.onExit();    

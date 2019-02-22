@@ -32,7 +32,7 @@ export class LocationsComponent implements OnInit {
     this.router.navigate(['edit', type], { relativeTo: this.activatedRoute });
   }
 
-  onRemoveSpeaker(location: LOCATION) {
+  onRemoveLocation(location: LOCATION) {
     this.activateConfirm = true;
     this.selectedLocation = location;
     this.confirmMessage = 'Are you sure to delete this session?';
