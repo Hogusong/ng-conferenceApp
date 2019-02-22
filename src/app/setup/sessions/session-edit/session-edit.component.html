@@ -16,16 +16,20 @@
     </div>
     <div class="row input-item">
       <label class="col-xs-2">From</label>
-      <input class="col-xs-4" type="time" [(ngModel)]="session.timeStart">
-      <label class="col-xs-2">To</label>
+      <input class="col-xs-5" type="time" [(ngModel)]="session.timeStart">
+      <label class="col-xs-1 to">To</label>
       <input class="col-xs-4" type="time" [(ngModel)]="session.timeEnd">
     </div>
     <div class="row input-item">
-      <label class="col-xs-3">Location</label>
-      <input class="col-xs-9" type="text" [(ngModel)]="session.location">
+      <label class="col-xs-2">Room</label>
+      <input class="col-xs-5" type="text" [(ngModel)]="session.room">
+      <label class="col-xs-5 location">Location<i class="fas fa-edit col-xs-1"></i></label>
     </div>
     <div class="description">
-      <label>Description</label>
+      <div id="description">
+        <label class="col-xs-6">Description</label>
+        <label class="col-xs-5" *ngIf="session.location">{{ session.location.name }}</label>
+      </div>
       <textarea type="date" [(ngModel)]="session.description"></textarea>
     </div>
     <div class="speakers">

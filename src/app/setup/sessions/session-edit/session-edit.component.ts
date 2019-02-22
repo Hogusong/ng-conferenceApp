@@ -25,7 +25,8 @@ export class SessionEditComponent implements OnInit {
     date: this.genService.getDateFormat(),         // 2018-12-06
     timeStart: '10:00',    // 15:30 for 3:30pm
     timeEnd: '10:00',
-    location: '',
+    room: '',
+    location: { id: '', name: '' },
     description: '',
     speakerIDs: [],   // speaker's id
     tracks: [],   //  name of track
