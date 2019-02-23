@@ -17,9 +17,9 @@ export class SessionComponent implements OnInit {
 
   session: SESSION;
   user: USER;
-  speakers: SPEAKER[];
+  speakers: SPEAKER[] = [];
   navbar: any;
-  favorites: { id: string, name: string }[];
+  favorites: { id: string, name: string }[] = [];
   activateMap = false;
   latitude = null;
   longitude = null;

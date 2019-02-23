@@ -69,6 +69,12 @@ export class LocationEditComponent implements OnInit {
     return this.http.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + address + '&key=' + this.apiKey);
   }
 
+  getAllCities() {
+    this.http.get('https://maps.googleapis.com/maps/api/place/autocomplete/output?parameters').subscribe(
+      res => console.log(res.json())
+    )
+  }
+
   onSubmit() {
     this.location.lng = null;
     this.location.lat = null;

@@ -15,4 +15,5 @@ export class ChangeInfoComponent {
   @Input() currentName: string;
   @Input() errMessage: string;
 
+  newInfo = '';
 }

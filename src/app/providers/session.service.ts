@@ -124,7 +124,7 @@ export class SessionService {
     setTimeout(() => {
       const sessions = data.slice();
       sessions.forEach((session:SESSION) => {
-        if (session.location.id === key) {
+        if (session.location && session.location.id === key) {
           session.location.name = newName;
           this.updateSession(session);
         }        
@@ -138,7 +138,7 @@ export class SessionService {
     setTimeout(() => {
       const sessions = data.slice();
       sessions.forEach((session:SESSION) => {
-        if (session.location.id === key) {
+        if (session.location && session.location.id === key) {
           session.location = null;
           this.updateSession(session);
         }        

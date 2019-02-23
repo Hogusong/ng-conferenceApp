@@ -1,4 +1,4 @@
-<div class="modal" *ngIf="!uploadImage">
+<div class="modal">
   <nav class="title bg-primary navbar-fixed-top">
     <h4>{{ mode }} location</h4>
     <button class="btn-cancel" (click)="onExit()">Cancel</button>
@@ -39,7 +39,7 @@
       </div>
     </div>
     <div class="buttons">
-      <button class="btn btn-primary" (click)="showMap()">Show Map</button>
+      <button class="btn btn-primary" (click)="getAllCities()">Show Map</button>
     </div>
   </div>
   <div class="map-area">

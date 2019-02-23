@@ -89,11 +89,11 @@ export class TutorialComponent implements OnInit {
         this.genService.getUser().then(user => {
           if (!user.seenTutorial) {
             user.seenTutorial = true;
-            this.genService.setUser(user).then(res => {
-              this.userService.updateUser(user)
-              this.router.navigate(['/schedule']);
-            });
           }
+          this.genService.setUser(user).then(res => {
+            this.userService.updateUser(user)
+            this.router.navigate(['/schedule']);
+          });
         })
       } else {
         this.router.navigate(['home']);
