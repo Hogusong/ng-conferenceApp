@@ -23,7 +23,7 @@
       <h4>{{ session.name }}</h4>
       <p>{{ session.description }}</p>
       <p id="date-time">{{ session.date }} ({{ session.timeStart }} - {{ session.timeEnd }})</p>
-      <p>{{ session.location }}</p>
+      <p>{{ session.location.name }} - {{ session.room }}</p>
       <div class="speakers">
         <p>Speakers</p>
         <ul *ngFor="let id of session.speakerIDs">
@@ -33,12 +33,19 @@
       </div>
     </div>
 
-    <div class="part-3">
-        <li>Watch</li>
+    <div class="part-3" *ngIf="!activateMap">
+        <li *ngIf="session.location" (click)="showTheMap(session.location.id)">Show the Map</li>
+        <li *ngIf="!session.location">Watch</li>
         <li>Add a Calendar</li>
         <li>Mark as Unwatched</li>
         <li>Download Video<i class="fas fa-cloud-download-alt"></i></li>     
         <li>Leave Feedback</li>   
+    </div>
+
+    <div class="part-3" *ngIf="activateMap">
+      <agm-map *ngIf="activateMap" [latitude]="latitude" [longitude]="longitude">
+        <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+      </agm-map>
     </div>
   </div>
 </div>

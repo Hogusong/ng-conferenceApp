@@ -10,103 +10,32 @@
   overflow: auto;
   padding-bottom: 60px;
 }
-
-ul {
-  list-style: none;
-}
+ul {  list-style: none;  }
 
 /* header */
-.header {
-  display: block;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-}
+.header {  display: block;  position: fixed;  top: 0;  left: 0;  width: 100%;  }
+.header p {  float: left;  margin-top: 10px;  margin-right: 40px;  }
+.header i {  margin-right: 10px;  font-size: 20px  }
+.header h4 {  float: left;  }
 
-.header p {
-  float: left;
-  margin-top: 10px;
-  margin-right: 40px;
-}
-
-.header i {
-  margin-right: 10px;
-  font-size: 20px
-}
-
-.header h4 {
-  float: left;
-}
 /* session detail */
-.session {
-  padding: 60px 0;
-}
+.session {  padding: 60px 0;  }
 /* part-1 */
-.part-1 {
-  display: block;
-  width: 100%;
-}
-
-.tracks {
-  float: left;
-}
-
-.favorite {
-  float: right;
-}
-
-.part-1 ul {
-  display: inline;
-  padding: 0;
-}
-
-.part-1 ul li {
-  float: left;
-  font-size: 16px;
-  margin-left: 15px;
-  margin-right: -5px;
-}
-
-.part-1 p {
-  font-size: 30px;
-  margin-right: 20px;
-}
-
-.fill-red {
-  color: red;
-}
-
+.part-1 {  display: block;  width: 100%;  }
+.tracks {  float: left;  }
+.favorite {  float: right;  }
+.part-1 ul {  display: inline;  padding: 0;  }
+.part-1 ul li {  float: left;  font-size: 16px;  margin-left: 15px;  margin-right: -5px;  }
+.part-1 p {  font-size: 30px;  margin-right: 20px;  }
+.fill-red {  color: red;  }
 /* part-2 */
-.part-2 {
-  padding: 40px 15px;
-}
-
-.part-2 h4 {
-  font-size: 30px;
-}
-
-.part-2 #date-time {
-  margin-bottom: 0;
-}
-
-.speakers p {
-  width: 20%;
-  float: left;
-}
-
-.speakers ul {
-  width: 75%;
-  float: right;
-  text-align: left;
-  padding: 0;
-}
-
+.part-2 {  padding: 40px 15px;  }
+.part-2 h4 {  font-size: 30px;  }
+.part-2 #date-time {  margin-bottom: 0;  }
+.speakers p {  width: 20%;  float: left;  }
+.speakers ul {  width: 75%;  float: right;  text-align: left;  padding: 0;  }
 /* part-3 */
-.part-3 {
-  padding: 50px 15px;
-}
-
+.part-3 {  padding: 50px 15px;  }
 .part-3 li {
   list-style: none;
   border-bottom: 1px solid lightgray;
@@ -114,9 +43,5 @@ ul {
   padding: 12px 0;
   color: rgb(62, 62, 226); 
 }
-
-.part-3 i {
-  float: right;
-  margin-top: 5px;
-  margin-right: 10px;
-}
+.part-3 i {  float: right;  margin-top: 5px;  margin-right: 10px;  }
+agm-map {  height: 400px;  width: 100%;  }

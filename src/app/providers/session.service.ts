@@ -120,30 +120,30 @@ export class SessionService {
 
   updateLocationInSession(key: string, newName: string) {
     let data: SESSION[] = null;
-    // this.getAllSessions().subscribe(res => data = res);
-    // setTimeout(() => {
-    //   const sessions = data.slice();
-    //   sessions.forEach((session:SESSION) => {
-    //     if (session.location.id === key) {
-    //       session.location.name = newName;
-    //       this.updateSession(session);
-    //     }        
-    //   });
-    // }, 1000);
+    this.getAllSessions().subscribe(res => data = res);
+    setTimeout(() => {
+      const sessions = data.slice();
+      sessions.forEach((session:SESSION) => {
+        if (session.location.id === key) {
+          session.location.name = newName;
+          this.updateSession(session);
+        }        
+      });
+    }, 1000);
   }
 
   removeLocationInSession(key: string) {
     let data: SESSION[] = null;
-  //   this.getAllSessions().subscribe(res => data = res);
-  //   setTimeout(() => {
-  //     const sessions = data.slice();
-  //     sessions.forEach((session:SESSION) => {
-  //       if (session.location.id === key) {
-  //         session.location = null;
-  //         this.updateSession(session);
-  //       }        
-  //     });
-  //   }, 1000);
+    this.getAllSessions().subscribe(res => data = res);
+    setTimeout(() => {
+      const sessions = data.slice();
+      sessions.forEach((session:SESSION) => {
+        if (session.location.id === key) {
+          session.location = null;
+          this.updateSession(session);
+        }        
+      });
+    }, 1000);
   }
 
   filterSession(session: any, options: any) {
