@@ -1,0 +1,59 @@
+.select-modal {
+  z-index: 3;
+  display: block;
+  background: white;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: auto;
+  padding-bottom: 60px;
+}
+
+.navbar {
+  width: 100%;;
+  position: fixed;
+  top: 0;
+  left: 0;
+  border: none;
+  border-bottom: 1px solid lightgray;
+  box-shadow: 2px 3px 0px 0px rgba(114, 114, 116, 0.2);
+}
+
+.title {  display: flex;  width: 100%;  padding-bottom: 1px;  }
+.title h4 {  float: left;  margin-left: 20px;  width: 60%;  color: orange;  }
+.btn-cancel {  float: right;  width: 35%;  margin-right: 20px;  text-align: right;  }
+button:hover {  color: greenyellow;  }
+
+/* Search bar */
+.search {  margin: 3px 0 3px 0;  }
+.search span {  font-size: 16px;  padding: 0;  margin: 0;  }
+#search {  margin: 8px 0 0px 10px;  }
+#remove {  margin: 8px 0 0px -20px;  }
+.search input {
+  box-shadow: 3px 3px 0px 0px rgba(114, 114, 116, 0.2);
+  margin-bottom: 3px;
+}
+
+/* body */
+.body {  padding: 85px 20px 20px 20px;  max-height: 400px;  }
+.locations {  display: flex;  width: 100%;  margin: 20px 0;  }
+.locations p {  margin: 0 10px 0 0;  color: red;  }
+.locations h4 {  margin: 0;  }
+ul {  list-style: none;  padding: 0;  margin: 0;  }
+li {  display: inline-block;  width: 100%;  border-bottom: 1px solid lightgray;  }
+li p {  float: left;  }
+li button {
+  float: right;
+  padding: 3px;
+  font-size: 12px;
+  background: skyblue;
+  color: white;
+}
+#select {  margin-right: 10px;  }
+
+/* map area */
+.map-area {  padding: 0 20px 60px 20px;  }
+.map-area p {  margin: 0;  }
+agm-map {  height: 300px;  width: 100%;  }

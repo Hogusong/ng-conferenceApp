@@ -1,0 +1,47 @@
+<div class="select-modal">
+  <nav class="navbar navbar-fixed-top">
+    <div class="title bg-primary">
+      <h4>Select Location</h4>
+      <button class="btn-cancel" (click)="onExit()">Cancel</button>
+    </div>
+
+    <div class="row search">
+      <div class="col-xs-1">
+        <span class="glyphicon glyphicon-search" id="search"></span>
+      </div>
+      <div class="col-xs-10">
+        <input type="text" class="form-control" name="queryText"
+                [(ngModel)]="queryText" placeholder="search">
+      </div>
+      <div class="col-xs-1">
+        <span class="glyphicon glyphicon-remove" id="remove"
+              (click)="queryText=''" ></span>
+      </div>
+    </div>  
+  </nav>
+    
+  <div class="container-fluid body">
+    <div class="locations">
+      <p>Current Location :</p>
+      <h4>World Trade Center</h4>
+      <!-- <p>{{ currLocation }}</p> -->
+    </div>
+    <div class="location-list">
+      <ul *ngFor="let location of locations; let i = index">
+        <li *ngIf="location.name.toLowerCase().includes(queryText.toLowerCase())">
+          <p>{{ location.name }}</p>
+          <button class="btn" id="show-map" (click)="showMap(location)">Show Map</button>
+          <button class="btn" id="select" (click)="onSubmit(location)">Select</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="map-area">
+    <h4 *ngIf="!found">{{ mapMessage }}</h4>
+    <p *ngIf="found">{{ location.name }}</p>
+    <agm-map *ngIf="found" [latitude]="location.lat" [longitude]="location.lng">
+      <agm-marker [latitude]="location.lat" [longitude]="location.lng"></agm-marker>
+    </agm-map>    
+  </div>
+</div>

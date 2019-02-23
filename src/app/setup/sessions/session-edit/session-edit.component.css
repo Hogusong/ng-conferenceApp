@@ -40,8 +40,8 @@ input:focus {  outline: none;  }
 .location i {  float: right;  margin-right: 45px;  color: skyblue  }
 .description {  padding: 10px 0 20px 0;  }
 #description {  padding: 3px 0;  }
-#description label {  padding-left: 30px;  margin-right: 30px;  }
-#description p {  float: left;  padding: 0;  }
+#description label {  padding-left: 44px;  margin-right: 30px;  }
+#description p {  padding: 0;  }
 textarea {
   height: 200px;
   width: 90%;

@@ -19,6 +19,7 @@ export class SessionEditComponent implements OnInit {
   errorMessage = '';
   isSelectSpeakers = false;
   isSelectTracks = false;
+  isSelectLocation = false;
 
   session: SESSION = {
     name: '',
@@ -45,12 +46,17 @@ export class SessionEditComponent implements OnInit {
     this.mode = this.activatedRoute.snapshot.params['id'];
     if (this.mode !== 'New') {
       [this.id, this.mode] = [this.mode, 'Edit'];
-      this.sessionService.getSessionById(this.id).then(res => this.session = res);
+      this.sessionService.getSessionById(this.id).then(res => {
+        this.session = res;
+        if (!this.session.location) {
+          this.session.location = { id: '', name: '' }
+        }
+      });
     }
     this.getSpeakersTracks();
     this.navbar = document.getElementsByClassName('fixed-top')[0];
-    this.navbar.setAttribute('position', 'relative')
-    this.navbar.setAttribute('display', 'none');  
+    this.navbar.setAttribute('position', 'relative');
+    this.navbar.setAttribute('display', 'none');
   }
 
   getSpeakersTracks() {
@@ -87,6 +93,11 @@ export class SessionEditComponent implements OnInit {
   submitTracks(data) {
     this.session.tracks = data.slice();
     this.isSelectTracks = false;
+  }
+
+  submitLocation(data) {
+    this.session.location = data;
+    this.isSelectLocation = false;
   }
 
   onSubmit() {

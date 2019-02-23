@@ -1,4 +1,4 @@
-<div class="modal" *ngIf="!isSelectSpeakers || !isSelectTracks">
+<div class="modal" *ngIf="!isSelectSpeakers || !isSelectTracks || !isSelectLocation">
   <nav class="title bg-primary navbar-fixed-top">
     <h4>{{ mode }} Session</h4>
     <button class="btn-cancel" (click)="onExit()">Cancel</button>
@@ -23,12 +23,14 @@
     <div class="row input-item">
       <label class="col-xs-2">Room</label>
       <input class="col-xs-5" type="text" [(ngModel)]="session.room">
-      <label class="col-xs-5 location">Location<i class="fas fa-edit col-xs-1"></i></label>
+      <label class="col-xs-5 location">Location
+        <i class="fas fa-edit col-xs-1" (click)="isSelectLocation=true"></i>
+      </label>
     </div>
     <div class="description">
-      <div id="description">
+      <div class="row" id="description">
         <label class="col-xs-6">Description</label>
-        <label class="col-xs-5" *ngIf="session.location">{{ session.location.name }}</label>
+        <p class="col-xs-5" *ngIf="session.location">{{ session.location.name }}</p>
       </div>
       <textarea type="date" [(ngModel)]="session.description"></textarea>
     </div>
@@ -70,3 +72,9 @@
                     (exitSelection)="isSelectTracks = false"
                     [tracksInSession]="session.tracks.slice()">
 </app-select-track>
+
+<app-select-location *ngIf="isSelectLocation"
+                    (submitLocation)="submitLocation($event)"
+                    (exitSelection)="isSelectLocation = false"
+                    [currLocation]="session.location.name">
+</app-select-location>

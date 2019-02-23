@@ -43,9 +43,9 @@
     </div>
   </div>
   <div class="map-area">
-  <h3 *ngIf="!found">{{ mapMessage }}</h3>
-  <agm-map *ngIf="found" [latitude]="location.lat" [longitude]="location.lng">
-    <agm-marker [latitude]="location.lat" [longitude]="location.lng"></agm-marker>
-  </agm-map>
-</div>
+    <h3 *ngIf="!found">{{ mapMessage }}</h3>
+    <agm-map *ngIf="found" [latitude]="location.lat" [longitude]="location.lng">
+      <agm-marker [latitude]="location.lat" [longitude]="location.lng"></agm-marker>
+    </agm-map>
+  </div>
 </div>

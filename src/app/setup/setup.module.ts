@@ -27,6 +27,7 @@ import { LocationsComponent } from './locations/locations.component';
 import { LocationEditComponent } from './locations/location-edit/location-edit.component';
 import { HttpModule } from "@angular/http";
 import { environment } from "src/environments/environment.prod";
+import { SelectLocationComponent } from './sessions/select-location/select-location.component';
 
 @NgModule({
   imports: [
@@ -57,7 +58,8 @@ import { environment } from "src/environments/environment.prod";
     PartOfDayComponent,
     AmpmPipe,
     LocationsComponent,
-    LocationEditComponent
+    LocationEditComponent,
+    SelectLocationComponent
   ],
 })
 export class SetupModule {}
