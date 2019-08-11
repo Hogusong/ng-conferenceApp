@@ -1,5 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule, enableProdMode } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
 import { AngularFireModule } from '@angular/fire';
@@ -30,8 +30,6 @@ import { SelectTrackComponent } from './pages/schedule/select-track/select-track
 import { ResetFilterComponent } from './pages/schedule/reset-filter/reset-filter.component';
 import { SpeakerDetailComponent } from './pages/speakers/speaker-detail/speaker-detail.component';
 import { SessionComponent } from './pages/session/session.component';
-
-enableProdMode();
 
 @NgModule({
   imports: [
