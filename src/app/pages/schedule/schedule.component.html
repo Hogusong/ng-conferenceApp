@@ -46,7 +46,7 @@
         <li class="item-group">
           <p (click)="openSession(session.id)">{{ session.name }}</p>
           <p>
-              {{session.timeStart}} &mdash; {{session.timeEnd}}: {{session.location}}
+              {{session.timeStart}} &mdash; {{session.timeEnd}}: {{session.location?.name}}
           </p>
         </li>
       </ul>
