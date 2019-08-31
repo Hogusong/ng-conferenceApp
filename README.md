@@ -39,22 +39,20 @@ If user wants to navigate more detail of a event, user can open any event which 
 
 <br>
 <br>
+<br>
+<br>
 
 <img align="left" src="gifs/conference-guest-event-map.gif">
 
 &nbsp;
 ### Event Map Integration
+
+&nbsp;
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+User can open the detail of an event from the schedule mode and the speakers mode by selecting any event which they want to see more detail such as main topic and article, date and time, location, and speakers.
+
+If user wants to set the location map, user can select ‘Show the Map’ which is under the speakers info. This app will open the google map and point the location for the event based on the geo location data. The google map allows zoom in and out for navigating.
+
 <br>
 <br>
 <br>
