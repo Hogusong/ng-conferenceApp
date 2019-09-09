@@ -4,11 +4,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Description
 
+### Admin Event Publishing
+
 <img align="left" src="gifs/conference-admin.gif">
 
 &nbsp;
-### Admin Event Publishing
-
 &nbsp;
 <br>
 Anyone can use this app after signup and login with their own username and password. By detecting username, two different dropdown menu and group of tabs are opened. Only ‘admin’ can update and save all data such as Events, Speakers, Tasks, and Locations into the firebase database and storage.
